@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Classy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-inner">
+      <span class="nav-logo">Y.K.</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#works">Works</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="../../index.html" class="nav-switch" title="テーマをシャッフル">⟳ Switch Theme</a>
+    </nav>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section class="hero" id="top">
+    <div class="hero-bg-line"></div>
+    <div class="hero-content reveal">
+      <p class="hero-eyebrow">Hello, I'm</p>
+      <h1 class="hero-name">Yuki Kato</h1>
+      <p class="hero-role">Frontend Developer &amp; Designer</p>
+      <div class="hero-divider"></div>
+      <p class="hero-tagline">Crafting refined digital experiences<br>with attention to every detail.</p>
+      <a href="#works" class="btn-outline">View My Work</a>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-label reveal">01 / About</div>
+      <div class="about-grid">
+        <div class="about-image reveal">
+          <div class="image-frame">
+            <div class="image-placeholder">
+              <!-- Replace with <img src="../../assets/images/profile.jpg" alt="Profile"> -->
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="80" r="45" fill="#c8b89a" opacity="0.4"/>
+                <ellipse cx="100" cy="170" rx="65" ry="45" fill="#c8b89a" opacity="0.3"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <h2>A bit about me</h2>
+          <p>東京を拠点とするフロントエンド開発者&amp;デザイナー。<br>シンプルで美しく、使いやすいウェブ体験を作ることに情熱を持っています。</p>
+          <p>細部へのこだわりと、ユーザーに伝わるストーリーテリングを大切にしながら、コードとデザインの橋渡しをしています。</p>
+          <ul class="facts">
+            <li><span>Location</span>Tokyo, Japan</li>
+            <li><span>Experience</span>5+ Years</li>
+            <li><span>Specialty</span>UI / UX &amp; Frontend</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Works ── -->
+  <section class="section section-dark" id="works">
+    <div class="container">
+      <div class="section-label reveal">02 / Works</div>
+      <h2 class="section-title reveal">Selected Projects</h2>
+      <div class="works-grid">
+        <article class="work-card reveal">
+          <div class="work-number">01</div>
+          <h3>Minimal Dashboard</h3>
+          <p>データ可視化ダッシュボード。React + D3.js で構築したインタラクティブなグラフ群。</p>
+          <div class="work-tags">
+            <span>React</span><span>D3.js</span><span>TypeScript</span>
+          </div>
+          <a href="#" class="work-link">View Project →</a>
+        </article>
+        <article class="work-card reveal">
+          <div class="work-number">02</div>
+          <h3>E-Commerce Redesign</h3>
+          <p>アパレルブランドのECサイト全面リデザイン。UXリサーチからデザインシステム構築まで担当。</p>
+          <div class="work-tags">
+            <span>Figma</span><span>Next.js</span><span>Tailwind</span>
+          </div>
+          <a href="#" class="work-link">View Project →</a>
+        </article>
+        <article class="work-card reveal">
+          <div class="work-number">03</div>
+          <h3>Brand Identity</h3>
+          <p>スタートアップ向けブランドアイデンティティ設計。ロゴからWebまで一貫したビジュアル言語。</p>
+          <div class="work-tags">
+            <span>Branding</span><span>Illustrator</span><span>HTML/CSS</span>
+          </div>
+          <a href="#" class="work-link">View Project →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ── -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-label reveal">03 / Skills</div>
+      <h2 class="section-title reveal">Expertise</h2>
+      <div class="skills-grid">
+        <div class="skill-group reveal">
+          <h3>Frontend</h3>
+          <ul>
+            <li>HTML / CSS / JavaScript</li>
+            <li>TypeScript</li>
+            <li>React / Next.js</li>
+            <li>Vue.js</li>
+            <li>Animation (GSAP, Framer)</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Design</h3>
+          <ul>
+            <li>UI / UX Design</li>
+            <li>Figma / Sketch</li>
+            <li>Design Systems</li>
+            <li>Typography</li>
+            <li>Brand Identity</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Other</h3>
+          <ul>
+            <li>Git / GitHub</li>
+            <li>Node.js</li>
+            <li>REST / GraphQL APIs</li>
+            <li>Agile / Scrum</li>
+            <li>Performance Optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section class="section section-dark" id="contact">
+    <div class="container contact-container">
+      <div class="section-label reveal">04 / Contact</div>
+      <h2 class="section-title reveal">Let's Talk</h2>
+      <p class="contact-sub reveal">新しいプロジェクトや機会について、お気軽にご連絡ください。</p>
+      <a href="mailto:hello@example.com" class="btn-outline reveal">hello@example.com</a>
+      <div class="social-links reveal">
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Yuki Kato — All rights reserved.</p>
+    <a href="../../index.html" class="footer-switch">⟳ Try another theme</a>
+  </footer>
+
+  <script src="../../shared/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

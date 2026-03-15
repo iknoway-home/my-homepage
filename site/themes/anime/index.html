@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Anime</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Floating decorations ── -->
+  <div class="bg-shapes" aria-hidden="true">
+    <div class="shape shape-star s1">★</div>
+    <div class="shape shape-star s2">✦</div>
+    <div class="shape shape-star s3">✿</div>
+    <div class="shape shape-heart s4">♥</div>
+    <div class="shape shape-star s5">✦</div>
+    <div class="shape shape-heart s6">♡</div>
+    <div class="shape shape-star s7">★</div>
+    <div class="shape shape-star s8">✿</div>
+  </div>
+
+  <!-- ── Navigation ── -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-inner">
+      <span class="nav-logo">YK<span class="logo-star">★</span></span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#works">Works</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="../../index.html" class="nav-switch">🎲 Theme Gacha!</a>
+    </nav>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-badge">✨ Welcome to my site! ✨</div>
+      <h1 class="hero-name">
+        <span class="name-block">Yuki</span>
+        <span class="name-block accent">Kato</span>
+      </h1>
+      <p class="hero-role">
+        <span class="role-tag">💻 Developer</span>
+        <span class="role-tag">🎨 Designer</span>
+        <span class="role-tag">🌸 Creator</span>
+      </p>
+      <p class="hero-desc">かわいくて楽しいWebを作るのが大好き！<br>一緒に素敵なものを作りましょう〜！</p>
+      <div class="hero-btns">
+        <a href="#works" class="btn-primary">Works を見る ✦</a>
+        <a href="#contact" class="btn-ghost">Contact 📬</a>
+      </div>
+    </div>
+    <div class="hero-character" aria-hidden="true">
+      <div class="char-blob"></div>
+      <div class="char-face">
+        <div class="char-eyes">
+          <div class="eye left"><div class="pupil"></div></div>
+          <div class="eye right"><div class="pupil"></div></div>
+        </div>
+        <div class="char-blush left"></div>
+        <div class="char-blush right"></div>
+        <div class="char-mouth">‿</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">About Me <span>🌸</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card reveal">
+          <div class="about-avatar">
+            <div class="avatar-bg">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="38" r="24" fill="#ffb7d5"/>
+                <ellipse cx="50" cy="88" rx="32" ry="22" fill="#ffb7d5"/>
+                <circle cx="40" cy="34" r="5" fill="#fff"/>
+                <circle cx="60" cy="34" r="5" fill="#fff"/>
+                <circle cx="41" cy="35" r="3" fill="#4a2040"/>
+                <circle cx="61" cy="35" r="3" fill="#4a2040"/>
+                <circle cx="42" cy="34" r="1.2" fill="#fff"/>
+                <circle cx="62" cy="34" r="1.2" fill="#fff"/>
+                <circle cx="44" cy="44" r="5" fill="#ffaabb" opacity="0.6"/>
+                <circle cx="56" cy="44" r="5" fill="#ffaabb" opacity="0.6"/>
+                <path d="M 44 47 Q 50 52 56 47" stroke="#d45f7a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="status-badge">🟢 Available for work!</div>
+        </div>
+        <div class="about-text reveal">
+          <div class="speech-bubble">
+            <p>はじめまして〜！Yuki です ✨<br>東京でWeb開発とデザインをしています。</p>
+            <p>かわいいものとアニメが大好き！<br>ユーザーが思わず笑顔になるようなWebを目指しています 🌷</p>
+            <p>コーヒーとイラストと深夜アニメで生きています…！</p>
+          </div>
+          <div class="fun-facts">
+            <div class="fact-chip">📍 Tokyo</div>
+            <div class="fact-chip">⭐ 5年の経験</div>
+            <div class="fact-chip">🎮 Gamer</div>
+            <div class="fact-chip">🌸 Anime fan</div>
+            <div class="fact-chip">☕ Coffee addict</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Works ── -->
+  <section class="section section-alt" id="works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">My Works <span>💫</span></h2>
+      </div>
+      <div class="works-grid">
+        <article class="work-card reveal">
+          <div class="card-top">
+            <div class="card-emoji">📊</div>
+            <div class="card-badge new">New!</div>
+          </div>
+          <h3>Minimal Dashboard</h3>
+          <p>インタラクティブなデータ可視化ダッシュボード。React と D3.js で実装したよ！</p>
+          <div class="card-tags">
+            <span>React</span><span>D3.js</span><span>TypeScript</span>
+          </div>
+          <a href="#" class="card-link">見てみる →</a>
+        </article>
+        <article class="work-card reveal">
+          <div class="card-top">
+            <div class="card-emoji">🛍️</div>
+            <div class="card-badge hot">HOT</div>
+          </div>
+          <h3>EC Site Redesign</h3>
+          <p>アパレルブランドのECサイトをゼロからリデザイン！UXリサーチも担当しました 🌟</p>
+          <div class="card-tags">
+            <span>Figma</span><span>Next.js</span><span>Tailwind</span>
+          </div>
+          <a href="#" class="card-link">見てみる →</a>
+        </article>
+        <article class="work-card reveal">
+          <div class="card-top">
+            <div class="card-emoji">✏️</div>
+          </div>
+          <h3>Brand Identity</h3>
+          <p>スタートアップのブランド設計。ロゴからWebまで全部デザインしたよ ✨</p>
+          <div class="card-tags">
+            <span>Branding</span><span>Illustrator</span><span>HTML/CSS</span>
+          </div>
+          <a href="#" class="card-link">見てみる →</a>
+        </article>
+        <article class="work-card reveal wip">
+          <div class="card-top">
+            <div class="card-emoji">🚧</div>
+            <div class="card-badge wip-badge">WIP</div>
+          </div>
+          <h3>Secret Project...</h3>
+          <p>ただいま制作中！もうすぐ公開予定なのでお楽しみに〜！🎉</p>
+          <div class="card-tags">
+            <span>???</span><span>🔒</span>
+          </div>
+          <span class="card-link muted">Coming soon...</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ── -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Skills <span>⚡</span></h2>
+      </div>
+      <div class="skills-container">
+        <div class="skill-category reveal">
+          <h3>💻 Frontend</h3>
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <div class="skill-info"><span>HTML / CSS</span><span>98%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="--pct: 98%; --color: #ff6eb4;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info"><span>JavaScript</span><span>92%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="--pct: 92%; --color: #a78bfa;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info"><span>React / Next.js</span><span>88%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="--pct: 88%; --color: #60d8ff;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info"><span>TypeScript</span><span>80%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="--pct: 80%; --color: #ffd166;"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <h3>🎨 Design</h3>
+          <div class="skill-bars">
+            <div class="skill-bar-item">
+              <div class="skill-info"><span>Figma</span><span>95%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="--pct: 95%; --color: #ff6eb4;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info"><span>UI / UX</span><span>90%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="--pct: 90%; --color: #a78bfa;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info"><span>Illustrator</span><span>75%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="--pct: 75%; --color: #06d6a0;"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-info"><span>Animation</span><span>85%</span></div>
+              <div class="skill-bar"><div class="skill-fill" style="--pct: 85%; --color: #ffd166;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Tech tags -->
+      <div class="tech-cloud reveal">
+        <span>Vue.js</span><span>GSAP</span><span>Node.js</span>
+        <span>GraphQL</span><span>Git</span><span>Vite</span>
+        <span>Tailwind</span><span>Framer Motion</span><span>Sass</span>
+        <span>Astro</span><span>Storybook</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section class="section section-alt" id="contact">
+    <div class="container contact-container">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Contact <span>📬</span></h2>
+      </div>
+      <div class="contact-card reveal">
+        <div class="contact-mascot" aria-hidden="true">
+          <span class="mascot-wave">👋</span>
+        </div>
+        <p class="contact-msg">お仕事のご依頼や<br>コラボのご相談、お気軽にどうぞ〜！</p>
+        <a href="mailto:hello@example.com" class="btn-primary big">
+          ✉️ メッセージを送る
+        </a>
+        <div class="social-links">
+          <a href="https://github.com/" target="_blank" rel="noopener" class="social-btn">
+            <span>🐙</span> GitHub
+          </a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener" class="social-btn">
+            <span>🐦</span> Twitter / X
+          </a>
+          <a href="https://linkedin.com/" target="_blank" rel="noopener" class="social-btn">
+            <span>💼</span> LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>made with 💕 by Yuki Kato &copy; 2026</p>
+      <a href="../../index.html" class="footer-switch">🎲 別のテーマを試す！</a>
+    </div>
+  </footer>
+
+  <script src="../../shared/utils.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
