@@ -151,11 +151,44 @@ CLAUDE.md は**Claude Code が内部的に参照する実装ガイド**として
 
 | サービス例 | 手順 |
 |---|---|
-| GitHub Pages | `site/` を `docs/` にリネームしてリポジトリ設定で有効化 |
+| GitHub Pages | `docs/` フォルダを公開ディレクトリとして使用（後述） |
 | Netlify / Vercel | リポジトリを接続してルートを `site/` に設定 |
 | Cloudflare Pages | 同上 |
 
 ビルドステップは不要です。
+
+### GitHub Pages の構成（現在の設定）
+
+このリポジトリは **GitHub Pages** でのホスティングを前提に、以下の構成をとっています。
+
+- **公開ディレクトリ**: `/docs`（GitHub Pages の設定: Branch `main` / Folder `/docs`）
+- **開発ディレクトリ**: `/site`（実際の編集はこちらで行う）
+- **公開 URL**: `https://iknoway-home.github.io/my-website/`
+
+> GitHub Pages は `docs/` という名前のフォルダのみを公開ディレクトリとして指定できるため、
+> `site/` とは別に `docs/` を用意しています。
+
+### サイト更新時の手順（重要）
+
+`site/` を編集した後、**必ず `docs/` にも同期すること。**
+同期を忘れると本番サイトに変更が反映されません。
+
+```bash
+# site/ の内容を docs/ に上書きコピー
+cp -r site/. docs/
+
+# まとめてコミット
+git add site/ docs/
+git commit -m "Update site and sync docs"
+git push
+```
+
+#### 同期が必要なタイミング
+
+- テーマの HTML / CSS / JS を変更したとき
+- `router.js` を変更したとき
+- `shared/` 以下を変更したとき
+- `assets/` に画像などを追加したとき
 
 ---
 
