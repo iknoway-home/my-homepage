@@ -192,6 +192,107 @@ git push
 
 ---
 
+## 2026 UI/UX トレンドガイドライン
+
+調査した主要トレンドのうち、このサイト（静的・バンドラーなし・テーマ切替ポートフォリオ）に直接適用できるものをまとめる。
+新テーマの制作・既存テーマの改善時に参照すること。
+
+### 採用すべきトレンド
+
+#### 1. マイクロインタラクション（最優先）
+> 「静的に見えるものは古さを感じさせる」— ホバー・フォーカス・スクロール・クリックに必ず小さな動きを
+
+- ボタン: `transform: scale` + `box-shadow` の変化（`transition: 200ms ease`）
+- リンク: アンダーラインが左から右にスライドするアニメ（`::after` + `scaleX`）
+- カード: ホバー時に `translateY(-4px)` + 影が深くなる
+- フォームフィールド（連絡先など）: フォーカス時にラベルが上に浮く（Floating Label）
+- `anime` テーマのクリックバーストは既に実装済み — 他テーマにも独自バーストを追加する
+
+```css
+/* 例: ボタン共通マイクロインタラクション */
+.btn { transition: transform 200ms ease, box-shadow 200ms ease; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+.btn:active { transform: translateY(0); }
+```
+
+#### 2. 表現的タイポグラフィ
+> タイトルは「見出し」ではなく「ビジュアル要素」として扱う
+
+- 見出しのフォントサイズは `clamp()` でレスポンシブに（`clamp(2.5rem, 8vw, 7rem)`）
+- 大きな見出しに `letter-spacing: -0.03em` でモダンな詰まり感
+- キーワードに `background-clip: text` グラデーションを使った色付き文字
+- スクロールトリガーで文字が1文字ずつ / 1行ずつ現れるアニメーション（`IntersectionObserver` 活用）
+
+#### 3. ベントグリッドレイアウト
+> プロジェクト・スキルセクションをカード型グリッドで整理する
+
+- CSS Grid の `grid-template-areas` で大小混在のカードレイアウト
+- カード角丸: `border-radius: 16px〜24px`（角が大きいほどモダン）
+- 各カードにサイズバリエーション（1×1 / 2×1 / 1×2）を持たせて視覚的リズムを作る
+
+```css
+/* 例: ベントグリッドの骨格 */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.bento-card-wide { grid-column: span 2; }
+.bento-card-tall { grid-row: span 2; }
+```
+
+#### 4. ドーパミンデザイン（カラー）
+> 鮮やかで高コントラストな配色で「見ていて気持ちいい」を優先
+
+- `anime` テーマ: 既に実装済み。グラデーションを `conic-gradient` に拡張するとさらに鮮やか
+- 新テーマ: ネオングリーン系、ホットピンク×ブラック系などを検討
+- ホバー時に背景色が `hsl` で色相がシフトするアニメーション（`filter: hue-rotate()`）
+
+#### 5. スクロール連動アニメーション
+> `IntersectionObserver` で要素が入るたびに演出を発火（既存の `utils.js` 活用）
+
+- セクション全体: `opacity: 0 → 1` + `translateY(30px → 0)`（`stagger` で子要素を順次フェードイン）
+- スキルバー: スクロール入場時に幅が 0 から伸びる
+- 数字カウントアップ: 実績数値などを入場時にアニメーションカウント
+
+```js
+// 例: stagger フェードイン
+const items = $$('.skill-item');
+observer.observe(items, (el, i) => {
+  el.style.transitionDelay = `${i * 60}ms`;
+  el.classList.add('visible');
+});
+```
+
+#### 6. アクセシビリティ（インクルーシブデザイン）
+> アクセシビリティはコンプライアンスではなくUXの一部
+
+- すべてのインタラクティブ要素に `:focus-visible` スタイルを明示（`outline: 2px solid currentColor`）
+- アニメーションは必ず `prefers-reduced-motion` で制御（`window.__utils.prefersReducedMotion()` 使用）
+- カラーコントラスト比: テキストは WCAG AA 基準（4.5:1）以上を確認
+- `aria-label` / `role` / `alt` を全画像・アイコンに付与
+
+#### 7. サステナブルなWebデザイン
+> 軽量・高速を美徳にする
+
+- 画像は WebP 形式を優先（`<picture>` + `srcset`）
+- フォントは使うウェイトのみ `font-display: swap` でロード
+- アニメーションは `transform` / `opacity` のみ使用（`width` / `height` の変化はリフローを起こすため避ける）
+- 未使用 CSS は各テーマに閉じ込め、グローバルに漏らさない
+
+---
+
+### 採用しないトレンド（このサイトのスコープ外）
+
+| トレンド | 理由 |
+|---|---|
+| AI 駆動 UI | バックエンドなし・静的ファイルのみのため |
+| 音声 / マルチモーダル | ポートフォリオの目的と合わない |
+| AR / VR / WebXR | 実装コストに対してポートフォリオとしての効果が薄い |
+| アジェンティック UX | エージェント操作の必要がない |
+
+---
+
 ## 開発上の注意
 
 - バンドラー・フレームワーク不使用。素の HTML / CSS / JS で構成されています。
