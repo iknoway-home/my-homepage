@@ -47,11 +47,9 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
 }
 
 section {
-  scroll-snap-align: start;
   min-height: 100vh;
   min-height: 100dvh;
 }
@@ -748,10 +746,32 @@ img { display: block; max-width: 100%; }
   .snap-next-btn svg { animation: none; }
 }
 
+/* ── TOP button ───────────────────────────────────────────── */
+.top-btn {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(240, 234, 214, 0.3);
+  background: rgba(30, 57, 50, 0.88);
+  backdrop-filter: blur(8px);
+  color: var(--chalk);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 99;
+  transition: all var(--transition);
+}
+.top-btn svg { width: 20px; height: 20px; }
+.top-btn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--cream);
+  box-shadow: 0 4px 20px rgba(184, 134, 11, 0.35);
+}
+.top-btn:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 760px) {
-  html { scroll-snap-type: y proximity; }
-
   .snap-next-btn { bottom: 20px; width: 42px; height: 42px; }
   .snap-next-btn svg { width: 18px; height: 18px; }
 
