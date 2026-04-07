@@ -1022,6 +1022,49 @@ ul { list-style: none; }
   }
 }
 
+/* ── Snap nav button ──────────────────────────────────────── */
+.snap-next-btn {
+  position: fixed;
+  bottom: 28px; left: 50%; transform: translateX(-50%);
+  z-index: 99;
+  width: 44px; height: 44px;
+  border: 1px solid var(--neon-blue);
+  background: rgba(5, 5, 15, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--neon-blue);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  clip-path: polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+  box-shadow: var(--glow-blue);
+  transition: all 0.25s ease;
+}
+.snap-next-btn svg { width: 20px; height: 20px; transition: transform 0.3s ease; }
+.snap-next-btn--up svg { transform: rotate(180deg); }
+.snap-next-btn:hover { background: rgba(0, 212, 255, 0.15); }
+.snap-next-btn:focus-visible { outline: 1px solid var(--neon-blue); outline-offset: 3px; }
+
+/* ── TOP button ───────────────────────────────────────────── */
+.top-btn {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  width: 44px; height: 44px;
+  background: rgba(5, 5, 15, 0.85);
+  border: 1px solid var(--neon-pink);
+  color: var(--neon-pink);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 99;
+  clip-path: polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+  box-shadow: var(--glow-pink);
+  transition: all 0.25s ease;
+}
+.top-btn svg { width: 20px; height: 20px; }
+.top-btn:hover {
+  background: rgba(255, 0, 128, 0.15);
+  box-shadow: var(--glow-pink), inset 0 0 16px rgba(255, 0, 128, 0.1);
+}
+.top-btn:focus-visible { outline: 1px solid var(--neon-pink); outline-offset: 3px; }
+
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 860px) {
   .hero {
