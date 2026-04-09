@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iKnoWay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <nav class="nav-inner">
+      <span class="nav-logo">iKnoWay</span>
+      <ul class="nav-links">
+        <li><a href="#about">自己紹介</a></li>
+        <li><a href="#anime">アニメ</a></li>
+        <li><a href="#movies">映画</a></li>
+        <li><a href="#contact">連絡</a></li>
+      </ul>
+      <a href="../../index.html?switch=1" class="nav-switch">テーマ変更</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-content reveal">
+      <div class="hero-vertical" aria-hidden="true">ようこそ</div>
+      <h1 class="hero-name" id="hero-name"></h1>
+      <p class="hero-role" id="hero-role"></p>
+      <div class="hero-stamp" aria-hidden="true">道</div>
+      <p class="hero-tagline" id="hero-tagline"></p>
+      <a href="#anime" class="btn-zen">お気に入りを見る</a>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <p class="section-jp reveal">壱 — 自己紹介</p>
+      <h2 class="section-title reveal">About</h2>
+      <hr class="section-brush brush-hr reveal" />
+      <div class="about-text reveal" id="about-paragraphs"></div>
+      <ul class="facts-zen reveal" id="about-facts"></ul>
+    </div>
+  </section>
+
+  <section class="section" id="anime">
+    <div class="container">
+      <p class="section-jp reveal">弐 — アニメ</p>
+      <h2 class="section-title reveal">Favorite Anime</h2>
+      <hr class="section-brush brush-hr reveal" />
+      <div class="works-list" id="anime-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="movies">
+    <div class="container">
+      <p class="section-jp reveal">参 — 映画</p>
+      <h2 class="section-title reveal">Favorite Movies</h2>
+      <hr class="section-brush brush-hr reveal" />
+      <div class="works-list" id="movies-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <p class="section-jp reveal">肆 — 連絡</p>
+      <h2 class="section-title reveal">Contact</h2>
+      <hr class="section-brush brush-hr reveal" />
+      <div class="contact-inner reveal">
+        <p class="contact-msg" id="contact-message"></p>
+        <div class="social-links" id="contact-social"></div>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <p>&copy; 2026 iKnoWay</p>
+      <a href="../../index.html?switch=1" class="footer-switch">テーマ変更</a>
+    </footer>
+  </section>
+
+  <script src="../../shared/utils.js"></script>
+  <script src="../../shared/data.js"></script>
+  <script src="../../shared/snap.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>.:*~iKnoWay's Homepage~*:.</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-inner">
+      <span class="nav-logo">.:*~iK~*:.</span>
+      <ul class="nav-links">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#anime">Anime</a></li>
+        <li><a href="#movies">Movies</a></li>
+        <li><a href="#contact">BBS</a></li>
+      </ul>
+      <a href="../../index.html?switch=1" class="nav-switch">Theme Gacha!</a>
+    </nav>
+  </header>
+
+  <!-- ── Marquee ── -->
+  <div class="marquee-bar" style="margin-top: 52px;" aria-hidden="true">
+    <span class="marquee-content">
+      ***  Welcome to iKnoWay's Homepage!!  ***  Last updated: 2026.04.10  ***  You are visitor #<span id="visitor-count">000000</span>  ***  Best viewed in 1024x768  ***  Sign my guestbook!!  ***
+    </span>
+  </div>
+
+  <!-- ── Hero ── -->
+  <section class="hero" id="top">
+    <div class="hero-content reveal">
+      <div class="hero-badge">~ Welcome to my Homepage ~</div>
+      <h1 class="hero-name" id="hero-name"></h1>
+      <p class="hero-role" id="hero-role"></p>
+      <hr class="rainbow-hr hero-divider" />
+      <p class="hero-tagline" id="hero-tagline"></p>
+      <div class="hero-under-construction">
+        <i class="construction-icon">&#9888;</i>
+        <span>UNDER CONSTRUCTION - Always improving!!</span>
+        <i class="construction-icon">&#9888;</i>
+      </div>
+      <a href="#anime" class="btn-y2k">>>> Enter <<<</a>
+      <div class="hero-counter">
+        Visitors: <span class="counter-digits" id="hit-counter"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="panel reveal">
+        <div class="panel-title-bar">
+          <span>about_me.exe</span>
+          <span class="window-btns">
+            <span class="window-btn">_</span>
+            <span class="window-btn">[]</span>
+            <span class="window-btn">X</span>
+          </span>
+        </div>
+        <div class="section-label">01 / About Me</div>
+        <div class="about-grid">
+          <div class="about-avatar">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="80" r="45" fill="#ff69b4" opacity="0.4"/>
+              <ellipse cx="100" cy="170" rx="65" ry="45" fill="#ff69b4" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="about-text">
+            <h2>About Me!!</h2>
+            <div id="about-paragraphs"></div>
+            <table class="facts-table" id="about-facts"></table>
+            <div class="traits-list" id="about-traits"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rainbow-hr" />
+
+  <!-- ── Favorite Anime ── -->
+  <section class="section" id="anime">
+    <div class="container">
+      <div class="panel reveal">
+        <div class="panel-title-bar">
+          <span>anime_list.html</span>
+          <span class="window-btns">
+            <span class="window-btn">_</span>
+            <span class="window-btn">[]</span>
+            <span class="window-btn">X</span>
+          </span>
+        </div>
+        <div class="section-label">02 / Anime</div>
+        <h2 class="section-title">My Fav Anime!!</h2>
+        <p class="section-subtitle">Here's my favorite anime list! Check them out~</p>
+        <div class="works-grid" id="anime-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rainbow-hr" />
+
+  <!-- ── Favorite Movies ── -->
+  <section class="section" id="movies">
+    <div class="container">
+      <div class="panel reveal">
+        <div class="panel-title-bar">
+          <span>movies_list.html</span>
+          <span class="window-btns">
+            <span class="window-btn">_</span>
+            <span class="window-btn">[]</span>
+            <span class="window-btn">X</span>
+          </span>
+        </div>
+        <div class="section-label">03 / Movies</div>
+        <h2 class="section-title">Best Movies Ever!!</h2>
+        <p class="section-subtitle">These movies changed my life (for real)</p>
+        <div class="works-grid" id="movies-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rainbow-hr" />
+
+  <!-- ── Contact / Guestbook ── -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="panel reveal">
+        <div class="panel-title-bar">
+          <span>guestbook.cgi</span>
+          <span class="window-btns">
+            <span class="window-btn">_</span>
+            <span class="window-btn">[]</span>
+            <span class="window-btn">X</span>
+          </span>
+        </div>
+        <div class="section-label">04 / Contact</div>
+        <h2 class="section-title">Guest Book</h2>
+        <div class="contact-content">
+          <p class="contact-msg" id="contact-message"></p>
+          <p class="guestbook-notice">>>> Sign my Guestbook!! <<<</p>
+          <div class="social-links" id="contact-social"></div>
+          <div class="webring">
+            <p>[ Anime Fans Webring ]</p>
+            <div class="webring-nav">
+              <a href="#">&lt;&lt; Prev</a>
+              <a href="#">Random</a>
+              <a href="#">Next &gt;&gt;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <p>&copy; 2026 iKnoWay - All rights reserved.</p>
+      <span class="footer-best-viewed">Best viewed in Netscape Navigator 4.0+ at 1024x768</span>
+      <a href="../../index.html?switch=1" class="footer-switch">Theme Gacha!</a>
+    </footer>
+  </section>
+
+  <script src="../../shared/utils.js"></script>
+  <script src="../../shared/data.js"></script>
+  <script src="../../shared/snap.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

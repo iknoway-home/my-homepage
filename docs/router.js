@@ -9,9 +9,18 @@
  */
 
 const THEMES = [
-  { id: 'classy', path: 'themes/classy/index.html', weight: 1 },
-  { id: 'cyber',  path: 'themes/cyber/index.html',  weight: 1 },
-  { id: 'anime',  path: 'themes/anime/index.html',  weight: 1 },
+  { id: 'classy',     path: 'themes/classy/index.html',     weight: 1 },
+  { id: 'cyber',      path: 'themes/cyber/index.html',      weight: 1 },
+  { id: 'anime',      path: 'themes/anime/index.html',      weight: 1 },
+  { id: 'y2k',        path: 'themes/y2k/index.html',        weight: 1 },
+  { id: 'terminal',   path: 'themes/terminal/index.html',   weight: 1 },
+  { id: 'magazine',   path: 'themes/magazine/index.html',   weight: 1 },
+  { id: 'kawaii',     path: 'themes/kawaii/index.html',      weight: 1 },
+  { id: 'brutalist',  path: 'themes/brutalist/index.html',  weight: 1 },
+  { id: 'vaporwave',  path: 'themes/vaporwave/index.html',  weight: 1 },
+  { id: 'zen',        path: 'themes/zen/index.html',        weight: 1 },
+  { id: 'space',      path: 'themes/space/index.html',      weight: 1 },
+  { id: 'newspaper',  path: 'themes/newspaper/index.html',  weight: 1 },
 ];
 
 /** Weighted random selection from a list of themes. */

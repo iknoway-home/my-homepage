@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IKNOWAY</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <nav class="nav-inner">
+      <span class="nav-logo">iKnoWay</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#anime">Anime</a></li>
+        <li><a href="#movies">Movies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="../../index.html?switch=1" class="nav-switch">Switch</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="reveal">
+      <h1 class="hero-name" id="hero-name"></h1>
+      <p class="hero-role" id="hero-role"></p>
+      <p class="hero-tagline" id="hero-tagline"></p>
+      <a href="#anime" class="btn-brutal">See Favorites</a>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-label reveal">01/About</div>
+      <h2 class="section-title reveal">About</h2>
+      <div class="about-block reveal" id="about-paragraphs"></div>
+      <div class="facts-grid reveal" id="about-facts"></div>
+    </div>
+  </section>
+
+  <section class="section" id="anime">
+    <div class="container">
+      <div class="section-label reveal">02/Anime</div>
+      <h2 class="section-title reveal">Anime</h2>
+      <div class="works-list" id="anime-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="movies">
+    <div class="container">
+      <div class="section-label reveal">03/Movies</div>
+      <h2 class="section-title reveal">Movies</h2>
+      <div class="works-list" id="movies-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-label reveal">04/Contact</div>
+      <h2 class="section-title reveal">Contact</h2>
+      <div class="contact-block reveal">
+        <p class="contact-msg" id="contact-message"></p>
+        <div class="social-links" id="contact-social"></div>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <p>&copy; 2026 iKnoWay</p>
+      <a href="../../index.html?switch=1" class="footer-switch">Switch Theme</a>
+    </footer>
+  </section>
+
+  <script src="../../shared/utils.js"></script>
+  <script src="../../shared/data.js"></script>
+  <script src="../../shared/snap.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iKnoWay // SPACE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <nav class="nav-inner">
+      <span class="nav-logo">iKnoWay</span>
+      <ul class="nav-links">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#anime">ANIME</a></li>
+        <li><a href="#movies">MOVIES</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+      <a href="../../index.html?switch=1" class="nav-switch">SWITCH</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-content reveal">
+      <p class="hero-coord">LAT 35.1815 / LON 136.9066 / SOL 2026.100</p>
+      <h1 class="hero-name" id="hero-name"></h1>
+      <p class="hero-role" id="hero-role"></p>
+      <div class="hero-line"></div>
+      <p class="hero-tagline" id="hero-tagline"></p>
+      <a href="#anime" class="btn-space">Explore</a>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <p class="section-code reveal">// SECTOR 01</p>
+      <h2 class="section-title reveal">About</h2>
+      <div class="section-line reveal"></div>
+      <div class="hud-bracket reveal">
+        <div class="about-content" id="about-paragraphs"></div>
+        <div class="facts-hud" id="about-facts"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="anime">
+    <div class="container">
+      <p class="section-code reveal">// SECTOR 02</p>
+      <h2 class="section-title reveal">Anime</h2>
+      <div class="section-line reveal"></div>
+      <div class="works-grid" id="anime-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="movies">
+    <div class="container">
+      <p class="section-code reveal">// SECTOR 03</p>
+      <h2 class="section-title reveal">Movies</h2>
+      <div class="section-line reveal"></div>
+      <div class="works-grid" id="movies-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <p class="section-code reveal">// SECTOR 04</p>
+      <h2 class="section-title reveal">Contact</h2>
+      <div class="section-line reveal"></div>
+      <div class="contact-center reveal">
+        <p class="contact-msg" id="contact-message"></p>
+        <div class="social-links" id="contact-social"></div>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <p>STATION iKnoWay // UPTIME 10+ YEARS</p>
+      <a href="../../index.html?switch=1" class="footer-switch">SWITCH THEME</a>
+    </footer>
+  </section>
+
+  <script src="../../shared/utils.js"></script>
+  <script src="../../shared/data.js"></script>
+  <script src="../../shared/snap.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

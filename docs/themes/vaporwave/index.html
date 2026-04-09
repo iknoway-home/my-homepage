@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iKnoWay // VAPORWAVE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <nav class="nav-inner">
+      <span class="nav-logo">iKnoWay</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#anime">Anime</a></li>
+        <li><a href="#movies">Movies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="../../index.html?switch=1" class="nav-switch">Switch</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="grid-floor" aria-hidden="true"></div>
+    <div class="hero-content reveal">
+      <p class="hero-sub">W E L C O M E</p>
+      <h1 class="hero-name chrome-text" id="hero-name"></h1>
+      <p class="hero-role" id="hero-role"></p>
+      <div class="hero-divider"></div>
+      <p class="hero-tagline" id="hero-tagline"></p>
+      <a href="#anime" class="btn-vapor">ENTER</a>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-label reveal">ABOUT</div>
+      <h2 class="section-title chrome-text reveal">Profile</h2>
+      <div class="about-panel reveal">
+        <div id="about-paragraphs"></div>
+        <div class="facts-bar" id="about-facts"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="anime">
+    <div class="container">
+      <div class="section-label reveal">ANIME</div>
+      <h2 class="section-title chrome-text reveal">Favorites</h2>
+      <div class="works-grid" id="anime-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="movies">
+    <div class="container">
+      <div class="section-label reveal">MOVIES</div>
+      <h2 class="section-title chrome-text reveal">Selection</h2>
+      <div class="works-grid" id="movies-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-label reveal">CONTACT</div>
+      <h2 class="section-title chrome-text reveal">Connect</h2>
+      <div class="contact-center reveal">
+        <p class="contact-msg" id="contact-message"></p>
+        <div class="social-links" id="contact-social"></div>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <p>&copy; 2026 iKnoWay</p>
+      <a href="../../index.html?switch=1" class="footer-switch">Switch Theme</a>
+    </footer>
+  </section>
+
+  <script src="../../shared/utils.js"></script>
+  <script src="../../shared/data.js"></script>
+  <script src="../../shared/snap.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

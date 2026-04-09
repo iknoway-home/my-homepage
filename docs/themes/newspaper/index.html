@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The iKnoWay Times</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <nav class="nav-inner">
+      <span class="nav-logo">The iKnoWay Times</span>
+      <ul class="nav-links">
+        <li><a href="#about">Profile</a></li>
+        <li><a href="#anime">Anime</a></li>
+        <li><a href="#movies">Movies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="../../index.html?switch=1" class="nav-switch">Edition</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-content reveal">
+      <p class="hero-dateline">Aichi, Japan &mdash; April 2026 Edition</p>
+      <h1 class="hero-name" id="hero-name"></h1>
+      <p class="hero-edition" id="hero-role"></p>
+      <div class="hero-rule"></div>
+      <p class="hero-tagline" id="hero-tagline"></p>
+      <a href="#anime" class="btn-news">Read More</a>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <p class="section-kicker reveal">Profile</p>
+      <h2 class="section-title reveal">About the Author</h2>
+      <hr class="section-rule-double reveal" />
+      <div class="about-cols reveal" id="about-paragraphs"></div>
+      <div class="facts-row reveal" id="about-facts"></div>
+    </div>
+  </section>
+
+  <section class="section" style="background: #eee8db;" id="anime">
+    <div class="container">
+      <p class="section-kicker reveal">Entertainment</p>
+      <h2 class="section-title reveal">Favorite Anime</h2>
+      <hr class="section-rule-double reveal" />
+      <div class="works-cols" id="anime-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="movies">
+    <div class="container">
+      <p class="section-kicker reveal">Cinema</p>
+      <h2 class="section-title reveal">Favorite Movies</h2>
+      <hr class="section-rule-double reveal" />
+      <div class="works-cols" id="movies-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" style="background: #eee8db;" id="contact">
+    <div class="container">
+      <p class="section-kicker reveal">Letters</p>
+      <h2 class="section-title reveal">Get in Touch</h2>
+      <hr class="section-rule-double reveal" />
+      <div class="contact-center reveal">
+        <p class="contact-msg" id="contact-message"></p>
+        <div class="social-links" id="contact-social"></div>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <p>&copy; 2026 The iKnoWay Times. All rights reserved.</p>
+      <a href="../../index.html?switch=1" class="footer-switch">Switch Edition</a>
+    </footer>
+  </section>
+
+  <script src="../../shared/utils.js"></script>
+  <script src="../../shared/data.js"></script>
+  <script src="../../shared/snap.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

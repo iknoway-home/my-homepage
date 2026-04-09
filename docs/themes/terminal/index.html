@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iKnoWay@terminal:~</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <nav class="nav-inner">
+      <span class="nav-logo">guest@iknoway:~$</span>
+      <ul class="nav-links">
+        <li><a href="#about">./about</a></li>
+        <li><a href="#anime">./anime</a></li>
+        <li><a href="#movies">./movies</a></li>
+        <li><a href="#contact">./contact</a></li>
+      </ul>
+      <a href="../../index.html?switch=1" class="nav-switch">theme --random</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-pre reveal">
+      <pre class="hero-ascii" aria-hidden="true">
+ _ _  __          __        __
+(_) |/ /         / \      / /
+ | | ' / _ __   / / \ \  / / __ _ _  _
+ | |  &lt; | '_ \ / / _ \ \/ / / _` | | | |
+ | | . \| | | / / ___ \  / | (_| | |_| |
+ |_|_|\_\_| |/_/_/   \_\/   \__,_|\__, |
+                                    __/ |
+                                   |___/</pre>
+      <div class="hero-line"><span class="prompt">guest@iknoway</span>:<span class="prompt-path">~</span>$ whoami</div>
+      <div class="hero-line"><span class="hero-name" id="hero-name"></span></div>
+      <div class="hero-line">&nbsp;</div>
+      <div class="hero-line"><span class="prompt">guest@iknoway</span>:<span class="prompt-path">~</span>$ cat role.txt</div>
+      <div class="hero-line hero-role" id="hero-role"></div>
+      <div class="hero-line">&nbsp;</div>
+      <div class="hero-line"><span class="prompt">guest@iknoway</span>:<span class="prompt-path">~</span>$ cat tagline.txt</div>
+      <div class="hero-line hero-tagline" id="hero-tagline"></div>
+      <div class="hero-line">&nbsp;</div>
+      <div class="hero-cmd">
+        <span class="prompt">guest@iknoway</span>:<span class="prompt-path">~</span>$ <a href="#anime">ls ./favorites/<span class="cursor"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-comment reveal">// ── about.sh ──</div>
+      <h2 class="section-title reveal">$ cat about.md</h2>
+      <div class="section-border"></div>
+      <div class="about-output reveal" id="about-paragraphs"></div>
+      <ul class="facts-list reveal" id="about-facts"></ul>
+    </div>
+  </section>
+
+  <section class="section" id="anime">
+    <div class="container">
+      <div class="section-comment reveal">// ── anime_collection ──</div>
+      <h2 class="section-title reveal">$ ls -la ./anime/</h2>
+      <div class="section-border"></div>
+      <div class="works-grid" id="anime-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="movies">
+    <div class="container">
+      <div class="section-comment reveal">// ── movie_collection ──</div>
+      <h2 class="section-title reveal">$ ls -la ./movies/</h2>
+      <div class="section-border"></div>
+      <div class="works-grid" id="movies-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-comment reveal">// ── contact.sh ──</div>
+      <h2 class="section-title reveal">$ cat contact.md</h2>
+      <div class="section-border"></div>
+      <div class="contact-output reveal">
+        <p class="contact-msg" id="contact-message"></p>
+        <div class="social-links" id="contact-social"></div>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <p>PID 2026 | uptime 10+ years | iKnoWay</p>
+      <a href="../../index.html?switch=1" class="footer-switch">theme --random</a>
+    </footer>
+  </section>
+
+  <script src="../../shared/utils.js"></script>
+  <script src="../../shared/data.js"></script>
+  <script src="../../shared/snap.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
