@@ -540,6 +540,24 @@ img { display: block; max-width: 100%; }
   border-radius: 2px;
 }
 
+/* ── Movies — cream-background card overrides ────────────── */
+#movies .work-card {
+  border-color: var(--cream-border);
+  background: var(--cream-dark);
+}
+#movies .work-card:hover {
+  background: rgba(160, 113, 79, 0.1);
+}
+#movies .work-card::before { background: var(--wood-warm); }
+#movies .work-number { color: rgba(160, 113, 79, 0.18); }
+#movies .work-card:hover .work-number { color: rgba(160, 113, 79, 0.35); }
+#movies .work-card h3 { color: var(--text); text-shadow: none; }
+#movies .work-card p { color: var(--text-muted); }
+#movies .work-tags span {
+  color: var(--wood-warm);
+  border-color: rgba(160, 113, 79, 0.35);
+}
+
 /* ── Contact (dark green again, cozy) ────────────────────── */
 .section-green {
   background-color: var(--green-deep);

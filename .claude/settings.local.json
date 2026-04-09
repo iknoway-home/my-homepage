@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mv site:*)"
+      "Bash(mv site:*)",
+      "Bash(git pull:*)"
     ]
   }
 }
