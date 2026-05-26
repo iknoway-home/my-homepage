@@ -22,6 +22,7 @@ const THEMES = [
   { id: 'space',      path: 'themes/space/index.html',      weight: 1 },
   { id: 'newspaper',  path: 'themes/newspaper/index.html',  weight: 1 },
   { id: 'apple',      path: 'themes/apple/index.html',      weight: 1 },
+  { id: 'fantasy-book', path: 'themes/fantasy-book/index.html', weight: 1 },
 ];
 
 /** Weighted random selection from a list of themes. */
