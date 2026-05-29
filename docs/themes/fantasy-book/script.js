@@ -195,9 +195,11 @@
 
     isTurning = true;
     var sheet = direction === 'prev' ? prevSheet : nextSheet;
-    sheet.classList.remove('is-turning');
-    sheet.offsetWidth;
-    sheet.classList.add('is-turning');
+    if (sheet) {
+      sheet.classList.remove('is-turning');
+      sheet.offsetWidth;
+      sheet.classList.add('is-turning');
+    }
 
     document.body.classList.toggle('turning-prev', direction === 'prev');
     document.body.classList.toggle('turning-next', direction !== 'prev');
@@ -207,7 +209,7 @@
     }, 260);
 
     window.setTimeout(function () {
-      sheet.classList.remove('is-turning');
+      if (sheet) sheet.classList.remove('is-turning');
       document.body.classList.remove('turning-prev', 'turning-next');
       isTurning = false;
     }, 760);
@@ -235,12 +237,22 @@
   }
 
   function bind() {
-    document.querySelectorAll('[data-action="next"]').forEach(function (button) {
-      button.addEventListener('click', next);
+    document.addEventListener('click', function (event) {
+      var actionTarget = event.target.closest('[data-action]');
+      if (actionTarget && !actionTarget.disabled) {
+        event.preventDefault();
+        if (actionTarget.dataset.action === 'next') next();
+        if (actionTarget.dataset.action === 'prev') prev();
+        return;
+      }
+
+      var pageTarget = event.target.closest('.page-left, .page-right');
+      if (!pageTarget || !pageTarget.closest('.spread.is-active')) return;
+      if (event.target.closest('a, button')) return;
+      if (pageTarget.classList.contains('page-left')) prev();
+      if (pageTarget.classList.contains('page-right')) next();
     });
-    document.querySelectorAll('[data-action="prev"]').forEach(function (button) {
-      button.addEventListener('click', prev);
-    });
+
     navButtons.forEach(function (button) {
       button.addEventListener('click', function () {
         var target = Number(button.dataset.page);
