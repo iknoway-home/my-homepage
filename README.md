@@ -11,6 +11,7 @@
 |---|---|---|
 | **classy** | スターバックス風 — ダークグリーンの壁・木目・黒板・暖かい光 | CSS グラデーションライト演出 / 木目テクスチャ / Caveat フォント黒板 |
 | **anime** | サイバーパンク・アニメ風 — 漆黒 × ネオン × グリッチ | Canvas パーティクル / グリッチ CSS アニメ / CRT スキャンライン |
+| **data-js** | `shared/data.js` をそのまま見せるソース表示テーマ | Fetch API / 行番号付きコードビュー |
 
 ---
 
@@ -55,6 +56,7 @@
 | `docs/index.html?switch=1` | 現在と**異なる**テーマに強制切替 |
 | `docs/index.html?theme=classy` | `classy` テーマを固定表示（開発用） |
 | `docs/index.html?theme=anime` | `anime` テーマを固定表示（開発用） |
+| `docs/index.html?theme=data-js` | `data-js` テーマを固定表示（開発用） |
 
 各ページ内の「Switch Theme / GACHA」ボタンは `?switch=1` を使っています。
 
