@@ -27,6 +27,7 @@
 
   <section class="hero" id="top">
     <div class="hero-pre reveal">
+      <div class="hero-line"><span class="prompt">guest@iknoway</span>:<span class="prompt-path">~</span>$ neofetch --ascii ./iknoway.txt</div>
       <pre class="hero-ascii" aria-hidden="true">
  _ _  __            __          __
 (_) |/ / _ __   ___ \ \        / /_ _ _   _
@@ -35,17 +36,17 @@
  |_|_|\_\|_| |_|\___/   \__/\__/ \__,_|\__, |
                                         __/ |
                                        |___/</pre>
-      <div class="hero-line"><span class="prompt">guest@iknoway</span>:<span class="prompt-path">~</span>$ whoami</div>
+      <div class="hero-line"><span class="prompt">guest@iknoway</span>:<span class="prompt-path">~</span>$ id -un</div>
       <div class="hero-line"><span class="hero-name" id="hero-name"></span></div>
       <div class="hero-line">&nbsp;</div>
-      <div class="hero-line"><span class="prompt">guest@iknoway</span>:<span class="prompt-path">~</span>$ cat role.txt</div>
+      <div class="hero-line"><span class="prompt">guest@iknoway</span>:<span class="prompt-path">~</span>$ cat ~/profile/role.txt</div>
       <div class="hero-line hero-role" id="hero-role"></div>
       <div class="hero-line">&nbsp;</div>
-      <div class="hero-line"><span class="prompt">guest@iknoway</span>:<span class="prompt-path">~</span>$ cat tagline.txt</div>
+      <div class="hero-line"><span class="prompt">guest@iknoway</span>:<span class="prompt-path">~</span>$ fold -s ~/profile/tagline.txt</div>
       <div class="hero-line hero-tagline" id="hero-tagline"></div>
       <div class="hero-line">&nbsp;</div>
       <div class="hero-cmd">
-        <span class="prompt">guest@iknoway</span>:<span class="prompt-path">~</span>$ <a href="#anime">ls ./favorites/<span class="cursor"></span></a>
+        <span class="prompt">guest@iknoway</span>:<span class="prompt-path">~</span>$ <a href="#anime">find ./favorites -maxdepth 1 -type d<span class="cursor"></span></a>
       </div>
     </div>
   </section>
@@ -53,7 +54,7 @@
   <section class="section" id="about">
     <div class="container">
       <div class="section-comment reveal">// ── about.sh ──</div>
-      <h2 class="section-title reveal">$ cat about.md</h2>
+      <h2 class="section-title reveal">$ sed -n '1,120p' ./about.md</h2>
       <div class="section-border"></div>
       <div class="about-output reveal" id="about-paragraphs"></div>
       <ul class="facts-list reveal" id="about-facts"></ul>
@@ -63,7 +64,7 @@
   <section class="section" id="anime">
     <div class="container">
       <div class="section-comment reveal">// ── anime_collection ──</div>
-      <h2 class="section-title reveal">$ ls -la ./anime/</h2>
+      <h2 class="section-title reveal">$ ls -lh ./favorites/anime/</h2>
       <div class="section-border"></div>
       <div class="works-grid" id="anime-grid"></div>
     </div>
@@ -72,7 +73,7 @@
   <section class="section" id="movies">
     <div class="container">
       <div class="section-comment reveal">// ── movie_collection ──</div>
-      <h2 class="section-title reveal">$ ls -la ./movies/</h2>
+      <h2 class="section-title reveal">$ ls -lh ./favorites/movies/</h2>
       <div class="section-border"></div>
       <div class="works-grid" id="movies-grid"></div>
     </div>
@@ -81,7 +82,7 @@
   <section class="section" id="contact">
     <div class="container">
       <div class="section-comment reveal">// ── contact.sh ──</div>
-      <h2 class="section-title reveal">$ cat contact.md</h2>
+      <h2 class="section-title reveal">$ ./contact.sh --links</h2>
       <div class="section-border"></div>
       <div class="contact-output reveal">
         <p class="contact-msg" id="contact-message"></p>
