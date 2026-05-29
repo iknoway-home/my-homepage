@@ -171,8 +171,7 @@
         'Projects',
         '<p class="chapter-kicker">Chapter VIII</p>' +
           (data.projects || []).map(projectEntry).join(''),
-        '<p class="chapter-kicker">Portal Notes</p>' +
-          '<p class="body-copy body-copy-large">これまで作ったサイトを、連絡先とは別の章にまとめています。</p>'
+        ''
       ),
       spread(
         'contact',
