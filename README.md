@@ -19,7 +19,7 @@
 ```
 /docs                    GitHub Pages 公開 & 開発ディレクトリ
 ├─ index.html            エントリーポイント（ローダー + テーマ選択）
-├─ router.js             テーマ選択ロジック
+├─ theme-router.js       テーマ選択ロジック
 │
 ├─ themes/
 │   ├─ classy/           おしゃれ系テーマ（index.html / style.css / script.js）
@@ -100,7 +100,7 @@ npx serve docs
 
 1. `docs/themes/` に新ディレクトリを作成し `index.html` / `style.css` / `script.js` を実装
 2. `script.js` 内で `window.__data` を読み取ってコンテンツを描画する
-3. `docs/router.js` の `THEMES` 配列にエントリを追加
+3. `docs/theme-router.js` の `THEMES` 配列にエントリを追加
 
 ```js
 const THEMES = [

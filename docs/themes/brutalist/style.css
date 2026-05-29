@@ -356,3 +356,14 @@ ul { list-style: none; }
   .nav-links { display: none; }
   .site-footer { flex-direction: column; gap: 8px; text-align: center; }
 }
+/* ── Human polish tuning ─────────────────────────────────── */
+:root {
+  --human-focus: var(--accent);
+  --human-selection-bg: var(--accent);
+  --human-selection-fg: var(--bg);
+  --human-grain-opacity: 0.075;
+  --human-grain-blend: multiply;
+  --human-grain-size-a: 7px 9px;
+  --human-grain-size-b: 13px 15px;
+  --human-card-transform: translate3d(-2px, -2px, 0);
+}

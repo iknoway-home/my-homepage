@@ -748,3 +748,13 @@ ul { list-style: none; }
   .hero-stats { gap: 16px; }
   .stat-num { font-size: 1.5rem; }
 }
+/* ── Human polish tuning ─────────────────────────────────── */
+:root {
+  --human-focus: var(--pink);
+  --human-selection-bg: var(--gold);
+  --human-selection-fg: #2D3D36;
+  --human-grain-opacity: 0.04;
+  --human-grain-size-a: 11px 13px;
+  --human-grain-size-b: 17px 19px;
+  --human-card-transform: translate3d(0, -4px, 0) rotate(-0.4deg);
+}

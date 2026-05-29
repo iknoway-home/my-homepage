@@ -680,3 +680,11 @@ ul { list-style: none; }
     text-align: center;
   }
 }
+/* ── Human polish tuning ─────────────────────────────────── */
+:root {
+  --human-focus: var(--blue);
+  --human-selection-bg: rgba(0, 113, 227, 0.22);
+  --human-selection-fg: var(--text-primary);
+  --human-grain-opacity: 0.018;
+  --human-card-transform: translate3d(0, -2px, 0);
+}

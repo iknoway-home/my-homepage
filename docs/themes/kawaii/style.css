@@ -443,3 +443,11 @@ ul { list-style: none; }
   .nav-links { display: none; }
   .site-footer { flex-direction: column; gap: 8px; text-align: center; }
 }
+/* ── Human polish tuning ─────────────────────────────────── */
+:root {
+  --human-focus: var(--lavender);
+  --human-selection-bg: var(--yellow);
+  --human-selection-fg: #5a325f;
+  --human-grain-opacity: 0.035;
+  --human-card-transform: translate3d(0, -5px, 0) rotate(0.45deg);
+}

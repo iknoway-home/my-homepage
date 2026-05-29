@@ -828,3 +828,13 @@ img { display: block; max-width: 100%; }
     text-align: center;
   }
 }
+/* ── Human polish tuning ─────────────────────────────────── */
+:root {
+  --human-focus: var(--hot-pink);
+  --human-selection-bg: var(--yellow);
+  --human-selection-fg: var(--bg-panel);
+  --human-grain-opacity: 0.05;
+  --human-grain-size-a: 8px 10px;
+  --human-grain-size-b: 14px 18px;
+  --human-card-transform: translate3d(0, -4px, 0) rotate(0.35deg);
+}

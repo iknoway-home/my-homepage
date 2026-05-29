@@ -423,3 +423,12 @@ ul { list-style: none; }
   .nav-links { display: none; }
   .site-footer { flex-direction: column; gap: 8px; text-align: center; }
 }
+/* ── Human polish tuning ─────────────────────────────────── */
+:root {
+  --human-focus: var(--cyan);
+  --human-selection-bg: rgba(255, 113, 206, 0.38);
+  --human-selection-fg: #fff;
+  --human-grain-opacity: 0.045;
+  --human-grain-blend: screen;
+  --human-card-transform: translate3d(0, -4px, 0) rotate(-0.25deg);
+}

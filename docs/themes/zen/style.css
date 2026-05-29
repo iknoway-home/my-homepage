@@ -380,3 +380,14 @@ ul { list-style: none; }
   .site-footer { flex-direction: column; gap: 8px; text-align: center; }
   .hero-vertical { display: none; }
 }
+/* ── Human polish tuning ─────────────────────────────────── */
+:root {
+  --human-focus: var(--shu);
+  --human-selection-bg: rgba(156, 42, 43, 0.18);
+  --human-selection-fg: var(--ink);
+  --human-grain-opacity: 0.06;
+  --human-grain-blend: multiply;
+  --human-grain-size-a: 20px 24px;
+  --human-grain-size-b: 31px 37px;
+  --human-card-transform: translate3d(0, -2px, 0);
+}

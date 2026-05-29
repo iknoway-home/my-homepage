@@ -211,43 +211,78 @@ $$('.reveal').forEach(el => observer.observe(el));
 
 ---
 
-## 最新デザイン・技術トレンド調査（2025-2026）
+## 最新デザイン・技術トレンド調査（2026-05 更新）
 
-調査対象：個人サイト、ポートフォリオサイト、Awwwards / Muzli 受賞作、Chrome Developer Blog
+調査対象：2026年公開のデザイントレンド記事、MDN / W3C の標準情報、生成AI UIに関するHCI論文。
+
+### 参考ソース
+
+| ソース | URL | 要点 |
+|--------|-----|------|
+| Creative Bloq: Graphic design trends 2026 | https://www.creativebloq.com/design/graphic-design/texture-warmth-and-tactile-rebellion-the-big-graphic-design-trends-for-2026 | 「Anti-AI Crafting」。過剰に滑らかなAI感への反動として、手触り、自然光、アナログ素材、ゆらぎ、プロセスの跡が差別化要素になる |
+| Line25: Web Design Trends 2026 | https://line25.com/articles/web-design-trends-2026/ | bento grid、巨大タイポグラフィ、スクロール連動、dark mode、micro-interactions、アクセシブルな配色、サステナブル設計 |
+| MDN: View Transition API | https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API | SPA / MPA 両方のビュー遷移をブラウザネイティブに扱える |
+| W3C: Web Sustainability Guidelines | https://www.w3.org/TR/2025/DNOTE-web-sustainability-guidelines-20251002/ | 装飾・アニメーションは価値がある場合に限定し、ユーザー制御とパフォーマンスを重視 |
+| arXiv: ChatGPT Implements Deceptive Designs | https://arxiv.org/abs/2411.03108 | GPT-4生成サイトに deceptive design pattern が混入しやすいことを示す研究 |
+| arXiv: UX of AI-Generated Interface Prototypes | https://arxiv.org/abs/2605.15124 | AI生成プロトタイプは実用面は評価される一方、独自性・革新性で弱くなりやすい |
 
 ---
 
-### ビジュアル・美的トレンド
+### AI臭いサイトデザインの典型
 
-| トレンド | 概要 | このサイトへの適用 |
-|---------|------|-----------------|
-| ソフトミニマリズム×有機的シェイプ | 直線グリッドを脱し、流線・ブロブ・ソフトグラデへ | classy テーマにブロブ型デコ要素を追加 |
-| ドーパミンデザイン | 高彩度・高コントラスト・Y2K パターン | cyber / anime テーマは既に近い方向性 |
-| マキシマリスト表現的タイポグラフィ | 極大見出し（`clamp(4rem, 12vw, 10rem)`）× 極小テキストの対比 | 全テーマの H1 をより大きく |
-| ベントグリッドレイアウト | 大小混在カード（1×1 / 2×1 / 1×2）による視覚リズム | アニメ・映画セクションに適用しやすい |
-| ノイズ・グレインテクスチャ | CSS / SVG フィルタで紙・フィルム質感 | classy 黒板は実装済み、他テーマへ拡張余地あり |
+| 症状 | 見え方 | 改善方針 |
+|------|--------|----------|
+| 均一すぎるカード | 同じ角丸、同じ影、同じ余白、同じカード幅が全セクションに続く | bento 的な大小差、テーマ固有の枠線・紙面・端末・ページ表現を使う |
+| 汎用SaaSヒーロー | 中央寄せの大見出し、薄いグラデ背景、抽象blob、CTA 2個のテンプレ感 | テーマの物理的な場を作る。カフェ、新聞、端末、宇宙船、書物など |
+| 説明文が抽象的 | 「革新的」「没入感」「シームレス」などが多く、本人の具体性が薄い | `shared/data.js` の個人的な文体を主役にして、UIは読ませるために整える |
+| 過剰なグローとぼかし | どのテーマも似た未来感・AI生成LP感になる | 光はテーマ由来に限定。紙ならインク、terminalならCRT、zenなら墨 |
+| 装飾アニメの過多 | スクロールしても内容理解に関係ない動きが多い | W3C WSG に沿い、`prefers-reduced-motion` と価値ある動きだけにする |
+| アクセシビリティの抜け | focus 表示なし、リンクの識別不足、モバイルで文字が詰まる | `:focus-visible`、`text-wrap: balance/pretty`、十分な line-height を全テーマで保証 |
+| 生成AI的な倫理リスク | FOMO、過剰誘導、曖昧なCTA、誤解を誘うUI | この個人サイトでは煽り文句を避け、テーマ変更・連絡先などの動作を明確にする |
+
+### AI臭くないサイトの特徴
+
+1. **素材感がある**: 紙、インク、木目、CRT、スクリーントーン、星図、手書き線など、テーマに対応した質感がある。
+2. **レイアウトに小さな癖がある**: 完全均等ではなく、見出し・カード・余白に意図的なリズムがある。
+3. **本文が主役になる**: それっぽい短文ではなく、本人の好き嫌い・言い回し・具体的な作品コメントが見える。
+4. **動きが目的を持つ**: 遷移、現在位置、次の章、カードの読みやすさを助ける動きに絞る。
+5. **テーマ固有のルールがある**: cyber は端末、newspaper は紙面、fantasy-book は本、zen は余白と墨、y2k は個人サイト感、というようにUIが世界観に従う。
+6. **完璧すぎないが雑ではない**: ノイズやゆらぎは入れるが、可読性、コントラスト、タップ領域は崩さない。
 
 ---
 
-### インタラクション・モーション
+### 2026年の採用候補
 
-| トレンド | 概要 | 静的サイト適用可否 |
-|---------|------|-----------------|
-| マイクロインタラクション強化 | ホバー・フォーカス・クリックごとに細かなフィードバック | ✅ CSS のみで対応可 |
-| スクロール駆動アニメーション（CSS Scroll-Driven Animations） | スクロール位置に連動するアニメーションを CSS ネイティブで実現 | ✅ ライブラリ不要 |
-| View Transitions API | ページ・状態遷移をシームレスなアニメーションで演出 | ✅ Vanilla JS API |
-| GSAP ScrollTrigger / SplitText | 高品質スクロールアニメ・文字単位アニメ | ✅ CDN で導入可能 |
-| 3D スクロールアニメーション（Three.js） | DOM と WebGL を同期させた没入型スクロール体験 | ⚠️ CDN 導入は可能、実装コスト高 |
-| WebGL カスタムシェーダー | スクロールやホバーで画像が変形・歪む演出 | ⚠️ 実装コスト高 |
+| トレンド | 概要 | このサイトでの使い方 |
+|----------|------|----------------------|
+| Anti-AI Crafting | 手触り、アナログ素材、自然な不完全さ | 全テーマに「質感レイヤー」を追加。ただし抽象blobは禁止 |
+| Bento / Broken Grid | 大小混在カードで単調さを避ける | anime / movies の一覧に wide / standard のリズムを付ける |
+| Expressive Typography | 見出しそのものをビジュアルにする | H1 とセクション見出しをテーマごとにより強くする |
+| Micro-interactions | 小さいが意味のあるフィードバック | リンク、テーマ変更、カードhover、focus状態に限定して強化 |
+| View Transitions API | MPAでも遷移を滑らかにする | `@view-transition` はエントリで導入済み。テーマ切替の体感改善に使う |
+| Performance / Sustainability | 装飾を軽く、必要な動きだけにする | CSS中心、画像追加なし、重い3Dや外部依存の追加は避ける |
+| Accessible-first color | トレンド色より読める色 | テーマ色は残しつつ、本文とfocusだけは必ず読める値にする |
+
+---
+
+### このサイトへの実装ルール
+
+1. **テーマの物語を優先する**: 共通化で全部同じ見た目にしない。
+2. **共通改善は `docs/shared/human-polish.css` に置く**: focus、文字詰め、bentoの基本、軽い質感など。
+3. **テーマ固有の癖は各 `style.css` 末尾に置く**: 紙、墨、CRT、雑誌、宇宙船などはテーマ側で上書きする。
+4. **装飾は1テーマ1主役まで**: glow、grain、pattern、motion を全部盛りしない。
+5. **カードは同じ高さにしすぎない**: 長文コメントの個性を残し、必要なら段組みでリズムを作る。
+6. **モーションは減速できるようにする**: `prefers-reduced-motion` を必ず尊重する。
 
 ---
 
 ### 注目ブラウザ API（静的サイト向け）
 
 #### View Transitions API ⭐ 最優先
-- **Baseline 2025 達成**（Chrome / Firefox / Safari クロスブラウザ対応）
-- ページ遷移・状態変化を `document.startViewTransition()` で囲むだけでアニメーション付与
-- **このサイトへの適用**: `router.js` のテーマ切替（現在の `setTimeout + window.location.replace`）を置換すると格段に滑らかになる
+- SPA / MPA のビュー遷移をブラウザネイティブに扱えるAPI
+- 対応状況は変化中のため、`@view-transition` とフォールバック前提で段階導入する
+- ページ遷移・状態変化を `document.startViewTransition()` で囲むとアニメーション付与ができる
+- **このサイトへの適用**: `theme-router.js` のテーマ切替（現在の `setTimeout + window.location.replace`）を置換すると格段に滑らかになる
 
 ```js
 // 現在
@@ -290,20 +325,18 @@ document.startViewTransition(() => {
 
 | リソース | URL | 内容 |
 |---------|-----|------|
-| Muzli: Top 100 Portfolio 2025 | muz.li | 受賞ポートフォリオ一覧 |
-| Awwwards | awwwards.com | 賞を受けたクリエイティブサイト |
-| Colorlib: Portfolio Trends 2026 | colorlib.com/wp/portfolio-design-trends/ | トレンド解説記事 |
-| Codrops | tympanus.net/codrops | CSS/JS テクニック実装例 |
-| Chrome for Developers: View Transitions 2025 | developer.chrome.com/blog/view-transitions-in-2025 | API の最新状況 |
-| MDN: View Transition API | developer.mozilla.org/docs/Web/API/View_Transition_API | リファレンス |
-| CSS-Tricks: Scroll-Driven Animations | css-tricks.com | 実装ガイド |
+| Creative Bloq: Graphic design trends 2026 | creativebloq.com | Anti-AI Crafting、手触り、タイプ、レイヤード表現 |
+| Line25: Web Design Trends 2026 | line25.com/articles/web-design-trends-2026/ | bento grid、巨大タイポ、micro-interactions、アクセシビリティ |
+| MDN: View Transition API | developer.mozilla.org/docs/Web/API/View_Transition_API | MPA / SPA 遷移APIのリファレンス |
+| W3C: Web Sustainability Guidelines | w3.org/TR/web-sustainability-guidelines/ | 装飾・アニメーション・性能・アクセシビリティの判断基準 |
+| arXiv: UX of AI-Generated Interface Prototypes | arxiv.org/abs/2605.15124 | AI生成UIの実用性と独自性の弱さに関するHCI研究 |
 
 ---
 
 ## このサイトへの適用候補（優先度順）
 
 ### 1. View Transitions API — テーマ切替の滑らか化
-**対象**: `docs/router.js`
+**対象**: `docs/theme-router.js`
 現在の `setTimeout + window.location.replace` を `document.startViewTransition()` で包む。
 ローダー画面のフェードと遷移アニメがブラウザネイティブに処理される。
 

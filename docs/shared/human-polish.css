@@ -1,0 +1,136 @@
+/* ============================================================
+   human-polish.css
+   Shared finishing layer based on DESIGN.md.
+   Keeps each theme's world, while reducing template-like sameness.
+   ============================================================ */
+
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-kerning: normal;
+}
+
+body {
+  text-wrap: pretty;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+  opacity: var(--human-grain-opacity, 0.035);
+  mix-blend-mode: var(--human-grain-blend, overlay);
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 70% 60%, rgba(0,0,0,0.55) 0 1px, transparent 1.4px);
+  background-size: var(--human-grain-size-a, 13px 17px), var(--human-grain-size-b, 19px 23px);
+}
+
+h1,
+h2,
+h3,
+.hero-name,
+.hero-title,
+.section-title,
+.chalk-title,
+.chrome-text {
+  text-wrap: balance;
+}
+
+p,
+li,
+.hero-tagline,
+.hero-sub,
+.contact-sub,
+.body-copy,
+.work-card p,
+.anime-card p,
+.work-item p,
+.work-article p,
+.entry p {
+  text-wrap: pretty;
+}
+
+a,
+button {
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: from-font;
+}
+
+:focus-visible {
+  outline: 2px solid var(--human-focus, currentColor);
+  outline-offset: 4px;
+}
+
+::selection {
+  color: var(--human-selection-fg, #101010);
+  background: var(--human-selection-bg, #f5d76e);
+}
+
+:is(.work-card, .anime-card, .work-item, .work-article, .entry, .fact-tile, .fact-cell, .trait-chip, .rune-tags span) {
+  backface-visibility: hidden;
+}
+
+:is(.work-card, .anime-card, .work-item, .work-article, .entry, .fact-tile, .fact-cell):where(:hover, :focus-within) {
+  transform: var(--human-card-transform, translate3d(0, -3px, 0));
+}
+
+:is(.nav-switch, .footer-switch, .btn-outline, .btn-primary, .btn-neon, .btn-ghost, .btn-y2k, .btn-kawaii, .btn-brutal, .btn-news, .btn-mag, .btn-space, .btn-vapor, .btn-zen, .btn-chalk, .closing-switch, .terminal-btn):active {
+  transform: translateY(1px);
+}
+
+@media (min-width: 900px) {
+  .works-grid,
+  .card-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: stretch;
+  }
+
+  .works-grid > *,
+  .card-grid > * {
+    grid-column: span 4;
+  }
+
+  .works-grid > :nth-child(6n + 1),
+  .works-grid > :nth-child(6n + 5),
+  .card-grid > :nth-child(6n + 1),
+  .card-grid > :nth-child(6n + 5),
+  .works-grid > .bento-wide,
+  .card-grid > .bento-wide {
+    grid-column: span 5;
+  }
+
+  .works-grid > :nth-child(6n + 3),
+  .card-grid > :nth-child(6n + 3) {
+    grid-column: span 3;
+  }
+
+  .works-grid > :nth-child(6n + 4),
+  .card-grid > :nth-child(6n + 4) {
+    grid-column: span 7;
+  }
+}
+
+@media (max-width: 899px) {
+  .works-grid,
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  :is(.work-card, .anime-card, .work-item, .entry, .fact-tile, .fact-cell):where(:hover, :focus-within) {
+    transform: none;
+  }
+}

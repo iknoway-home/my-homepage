@@ -1086,3 +1086,14 @@ ul { list-style: none; }
 
   .footer-inner { flex-direction: column; gap: 10px; text-align: center; }
 }
+/* ── Human polish tuning ─────────────────────────────────── */
+:root {
+  --human-focus: var(--neon-blue);
+  --human-selection-bg: rgba(0, 255, 136, 0.28);
+  --human-selection-fg: var(--text);
+  --human-grain-opacity: 0.045;
+  --human-grain-blend: screen;
+  --human-grain-size-a: 9px 11px;
+  --human-grain-size-b: 17px 21px;
+  --human-card-transform: translate3d(0, -4px, 0) skewX(-0.3deg);
+}

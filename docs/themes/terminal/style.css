@@ -422,3 +422,14 @@ ul { list-style: none; }
   .site-footer { flex-direction: column; gap: 8px; text-align: center; }
   .hero-ascii { display: none; }
 }
+/* ── Human polish tuning ─────────────────────────────────── */
+:root {
+  --human-focus: var(--green);
+  --human-selection-bg: rgba(0, 255, 65, 0.28);
+  --human-selection-fg: #f5ffe8;
+  --human-grain-opacity: 0.055;
+  --human-grain-blend: screen;
+  --human-grain-size-a: 6px 8px;
+  --human-grain-size-b: 11px 13px;
+  --human-card-transform: translate3d(0, -2px, 0);
+}
