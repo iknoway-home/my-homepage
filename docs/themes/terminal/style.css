@@ -242,8 +242,8 @@ ul { list-style: none; }
 /* ── Injected games / projects sections ───────────────────── */
 /* shared CSS sizes these up to 5rem; bring them in line with
    .section-title / .section-comment so every title matches. */
-.game-kicker,
-.project-kicker {
+#games .game-kicker,
+#projects .project-kicker {
   color: var(--text-comment);
   font-size: 0.8rem;
   font-weight: 400;
@@ -251,8 +251,8 @@ ul { list-style: none; }
   text-transform: none;
 }
 
-.game-title,
-.project-title {
+#games .game-title,
+#projects .project-title {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 700;
   line-height: 1.2;
