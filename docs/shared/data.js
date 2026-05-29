@@ -8,17 +8,17 @@ window.__data = {
     name: "iKnoWay",
     role: "Anime Enthusiast & Culture Explorer",
     roleJp: "アニメ愛好家＆カルチャー探求者",
-    tagline: "アニメと映画を愛する者。\n物語の世界に浸る日々を送っています。",
+    tagline: "アニメとゲームが好き。\n物語の世界に浸る日々を送っています。",
     about: [
-      "アニメと映画が好きなオタク。まったりしたものを観つつ、たまに激しいのも観ます。",
-      "日常系アニメが生きがい。泣く気はないがたまに泣く。",
+      "アニメと映画が好き。まったりしたものを観つつ、たまに激しいのも観ます。",
+      "泣く気はないがたまに泣く。",
       "フィギュアのウィンドウショッピングが趣味(高いのでたまにしか買わない)。",
     ],
     facts: [
       { label: "Location", value: "Aichi, Japan" },
-      { label: "オタ歴", value: "10+ Years" },
-      { label: "得意ジャンル", value: "SF / ファンタジー / 日常系" },
-      { label: "Fuel", value: "抹茶ラテ & ポップコーン" },
+      { label: "オタ歴", value: "20+ Years" },
+      { label: "得意ジャンル", value: "SF / ファンタジー / バトル物" },
+      { label: "Fuel", value: "紅茶 & ポップコーン(キャラメル)" },
     ],
     traits: [
       "深夜アニメ勢",
@@ -34,6 +34,23 @@ window.__data = {
     { count: 100, unit: "+", label: "WATCHED" },
     { count: 20, unit: "+", label: "YEARS" },
     { count: 100, unit: "%", label: "PASSION" },
+  ],
+
+  games: [
+    {
+      title: "Final Fantasy XIV",
+      status: "Now Playing",
+      comment:
+        "スクウェア・エニックスのMMORPG。光の戦士として広大な世界を冒険し、メインストーリー、ダンジョン、討滅戦、クラフト、ハウジングなどを自分のペースで楽しめる。ライト勢。最近メインジョブを決めかねている。",
+      tags: ["MMORPG", "RPG", "Online"],
+    },
+    {
+      title: "League of Legends",
+      status: "Now Playing",
+      comment:
+        "Riot Gamesの5対5チーム対戦型MOBA。個性の違うチャンピオンを選び、レーン戦、集団戦、オブジェクト管理を通じて相手のネクサス破壊を目指す競技性の高いゲーム。",
+      tags: ["MOBA", "PvP", "Strategy"],
+    },
   ],
 
   anime: [
@@ -132,26 +149,9 @@ window.__data = {
     },
   ],
 
-  games: [
-    {
-      title: "Final Fantasy XIV",
-      status: "Playing Now",
-      comment:
-        "スクウェア・エニックスのオンラインRPG。光の戦士として広大な世界を冒険し、メインストーリー、ダンジョン、討滅戦、クラフト、ハウジングなどを自分のペースで楽しめるMMORPG。",
-      tags: ["MMORPG", "RPG", "Online"],
-    },
-    {
-      title: "League of Legends",
-      status: "Playing Now",
-      comment:
-        "Riot Gamesの5対5チーム対戦型MOBA。個性の違うチャンピオンを選び、レーン戦、集団戦、オブジェクト管理を通じて相手のネクサス破壊を目指す競技性の高いゲーム。",
-      tags: ["MOBA", "PvP", "Strategy"],
-    },
-  ],
-
   contact: {
     message:
-      "アニメや映画の話、推しの布教、なんでもお気軽にどうぞ。語り合いましょう。",
+      "アニメや映画の話、推しの布教、なんでもお気軽にどうぞ。",
     email: "hello@example.com",
   },
 
