@@ -110,82 +110,78 @@
       spread(
         'profile',
         'Profile',
-        '<p class="chapter-kicker">Chapter I</p><h2>Wanderer Profile</h2>' +
+        '<p class="chapter-kicker">Chapter I</p>' +
           data.profile.about.map(function (text) {
             return '<p class="body-copy">' + escapeHtml(text) + '</p>';
           }).join('') +
           '<blockquote>' + escapeHtml(data.profile.tagline.split('\n')[0]) + '</blockquote>',
-        '<p class="chapter-kicker">Known Traits</p><h2>Marginalia</h2>' +
+        '<p class="chapter-kicker">Known Traits</p>' +
           '<div class="facts-grid">' + profileFacts() + '</div>' + traitRunes()
       ),
       spread(
         'games',
         'Games',
-        '<p class="chapter-kicker">Chapter II</p><h2>Current Quests</h2>' +
+        '<p class="chapter-kicker">Chapter II</p>' +
           (data.games || []).slice(0, 1).map(gameEntry).join(''),
-        '<p class="chapter-kicker">Party Log</p><h2>Rift Notes</h2>' +
+        '<p class="chapter-kicker">Party Log</p>' +
           (data.games || []).slice(1).map(function (item, index) { return gameEntry(item, index + 1); }).join('')
       ),
       spread(
         'anime-a',
         'Anime I',
-        '<p class="chapter-kicker">Chapter III</p><h2>Anime Codex</h2>' +
+        '<p class="chapter-kicker">Chapter III</p>' +
           animeOne.slice(0, 2).map(workEntry).join(''),
-        '<p class="chapter-kicker">Continued</p><h2>Favorite Tomes</h2>' +
+        '<p class="chapter-kicker">Continued</p>' +
           animeOne.slice(2).map(function (item, index) { return workEntry(item, index + 2); }).join('')
       ),
       spread(
         'anime-b',
         'Anime II',
-        '<p class="chapter-kicker">Chapter IV</p><h2>Further Entries</h2>' +
+        '<p class="chapter-kicker">Chapter IV</p>' +
           animeTwo.slice(0, 2).map(function (item, index) { return workEntry(item, index + 4); }).join(''),
-        '<p class="chapter-kicker">Appendix</p><h2>Battle Notes</h2>' +
-          animeTwo.slice(2, 3).map(function (item, index) { return workEntry(item, index + 6); }).join('') +
-          '<div class="page-ornament" aria-hidden="true"></div>'
+        '<p class="chapter-kicker">Appendix</p>' +
+          animeTwo.slice(2, 3).map(function (item, index) { return workEntry(item, index + 6); }).join('')
       ),
       spread(
         'anime-c',
         'Anime III',
-        '<p class="chapter-kicker">Chapter V</p><h2>Late Entries</h2>' +
-          animeTwo.slice(3, 4).map(function (item, index) { return workEntry(item, index + 7); }).join('') +
-          '<div class="page-ornament page-ornament-small" aria-hidden="true"></div>',
-        '<p class="chapter-kicker">Codex Close</p><h2>Dark Fantasy</h2>' +
-          animeTwo.slice(4).map(function (item, index) { return workEntry(item, index + 8); }).join('') +
-          '<div class="page-ornament page-ornament-small" aria-hidden="true"></div>'
+        '<p class="chapter-kicker">Chapter V</p>' +
+          animeTwo.slice(3, 4).map(function (item, index) { return workEntry(item, index + 7); }).join(''),
+        '<p class="chapter-kicker">Codex Close</p>' +
+          animeTwo.slice(4).map(function (item, index) { return workEntry(item, index + 8); }).join('')
       ),
       spread(
         'movies-a',
         'Movies I',
-        '<p class="chapter-kicker">Chapter VI</p><h2>Moving Pictures</h2>' +
+        '<p class="chapter-kicker">Chapter VI</p>' +
           moviesOne.slice(0, 2).map(workEntry).join(''),
-        '<p class="chapter-kicker">Silver Screen</p><h2>Relics</h2>' +
+        '<p class="chapter-kicker">Silver Screen</p>' +
           moviesOne.slice(2).map(function (item, index) { return workEntry(item, index + 2); }).join('')
       ),
       spread(
         'movies-b',
         'Movies II',
-        '<p class="chapter-kicker">Chapter VII</p><h2>Other Visions</h2>' +
+        '<p class="chapter-kicker">Chapter VII</p>' +
           moviesTwo.slice(0, 2).map(function (item, index) { return workEntry(item, index + 3); }).join(''),
-        '<p class="chapter-kicker">Final Reel</p><h2>Last Leaves</h2>' +
+        '<p class="chapter-kicker">Final Reel</p>' +
           moviesTwo.slice(2).map(function (item, index) { return workEntry(item, index + 5); }).join('')
       ),
       spread(
         'projects',
         'Projects',
-        '<p class="chapter-kicker">Chapter VIII</p><h2>Made Artifacts</h2>' +
+        '<p class="chapter-kicker">Chapter VIII</p>' +
           (data.projects || []).map(projectEntry).join(''),
-        '<p class="chapter-kicker">Portal Notes</p><h2>Open the Gate</h2>' +
-          '<p class="body-copy body-copy-large">これまで作ったサイトを、連絡先とは別の章にまとめています。</p>' +
-          '<div class="page-ornament" aria-hidden="true"></div>'
+        '<p class="chapter-kicker">Portal Notes</p>' +
+          '<p class="body-copy body-copy-large">これまで作ったサイトを、連絡先とは別の章にまとめています。</p>'
       ),
       spread(
         'contact',
         'Contact',
-        '<p class="chapter-kicker">Chapter IX</p><h2>Send a Raven</h2>' +
+        '<p class="chapter-kicker">Chapter IX</p>' +
           '<p class="body-copy body-copy-large">' + escapeHtml(data.contact.message) + '</p>' +
           '<a class="email-link" href="mailto:' + escapeHtml(data.contact.email) + '">' +
           escapeHtml(data.contact.email) + '</a>',
-        '<p class="chapter-kicker">Gateways</p><h2>Social Sigils</h2>' +
+        '<p class="chapter-kicker">Gateways</p>' +
           '<div class="social-links">' + socialLinks() + '</div>' +
           '<a href="../../index.html?switch=1" class="closing-switch">Draw Another Theme</a>'
       )

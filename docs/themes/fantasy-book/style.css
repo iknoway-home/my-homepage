@@ -523,23 +523,6 @@ blockquote {
   font-size: 0.6rem;
 }
 
-.page-ornament {
-  width: min(180px, 48%);
-  aspect-ratio: 1;
-  margin: clamp(20px, 5vw, 44px) auto 0;
-  border: 1px solid rgba(89, 58, 27, 0.18);
-  border-radius: 50%;
-  background:
-    linear-gradient(45deg, transparent 47%, rgba(109, 23, 21, 0.18) 48%, rgba(109, 23, 21, 0.18) 52%, transparent 53%),
-    linear-gradient(-45deg, transparent 47%, rgba(109, 23, 21, 0.18) 48%, rgba(109, 23, 21, 0.18) 52%, transparent 53%);
-  opacity: 0.62;
-}
-
-.page-ornament-small {
-  width: min(132px, 42%);
-  margin-top: clamp(16px, 4vw, 30px);
-}
-
 .rune-tags,
 .trait-runes {
   display: flex;
