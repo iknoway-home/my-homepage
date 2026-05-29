@@ -31,8 +31,8 @@ window.__data = {
   },
 
   heroStats: [
-    { count: 500, unit: "+", label: "WATCHED" },
-    { count: 10, unit: "+", label: "YEARS" },
+    { count: 100, unit: "+", label: "WATCHED" },
+    { count: 20, unit: "+", label: "YEARS" },
     { count: 100, unit: "%", label: "PASSION" },
   ],
 

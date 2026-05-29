@@ -21,37 +21,72 @@
     '<polyline points="6 9 12 15 18 9"/></svg>';
   document.body.appendChild(navBtn);
 
-  function updateNavBtn() {
-    var mid = window.innerHeight / 2;
-    var best = 0, bestDist = Infinity;
-    sections.forEach(function (s, i) {
-      var r = s.getBoundingClientRect();
-      var d = Math.abs(r.top + r.height / 2 - mid);
-      if (d < bestDist) { bestDist = d; best = i; }
-    });
-    if (currentIndex !== best) {
-      currentIndex = best;
-      var isLast = currentIndex >= sections.length - 1;
-      navBtn.classList.toggle('snap-next-btn--up', isLast);
-      navBtn.setAttribute('aria-label', isLast ? 'Back to top' : 'Next section');
-    }
+  function setCurrentIndex(index) {
+    if (index === currentIndex) return;
+    currentIndex = index;
+    var isLast = currentIndex >= sections.length - 1;
+    navBtn.classList.toggle('snap-next-btn--up', isLast);
+    navBtn.setAttribute('aria-label', isLast ? 'Back to top' : 'Next section');
   }
 
-  var ticking = false;
-  window.addEventListener('scroll', function () {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(function () { updateNavBtn(); ticking = false; });
-    }
+  function getNearestSectionIndex() {
+    var mid = window.innerHeight / 2;
+    var best = 0;
+    var bestDist = Infinity;
+    sections.forEach(function (section, index) {
+      var rect = section.getBoundingClientRect();
+      var dist = Math.abs(rect.top + rect.height / 2 - mid);
+      if (dist < bestDist) {
+        best = index;
+        bestDist = dist;
+      }
+    });
+    return best;
+  }
+
+  if ('IntersectionObserver' in window) {
+    var activeObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var index = sections.indexOf(entry.target);
+          if (index !== -1) setCurrentIndex(index);
+        }
+      });
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+
+    sections.forEach(function (section) {
+      activeObserver.observe(section);
+    });
+  }
+
+  window.addEventListener('resize', function () {
+    setCurrentIndex(getNearestSectionIndex());
   }, { passive: true });
-  updateNavBtn();
+
+  setCurrentIndex(getNearestSectionIndex());
 
   navBtn.addEventListener('click', function () {
+    currentIndex = getNearestSectionIndex();
     var target = currentIndex >= sections.length - 1
       ? sections[0]
       : sections[currentIndex + 1];
     target.scrollIntoView({ behavior: 'smooth' });
   });
+
+  // Fallback for older browsers without IntersectionObserver.
+  if (!('IntersectionObserver' in window)) {
+    window.addEventListener('scroll', function () {
+      setCurrentIndex(getNearestSectionIndex());
+    }, { passive: true });
+  }
+
+  function updateInitialButtonState() {
+    var isLast = currentIndex >= sections.length - 1;
+    navBtn.classList.toggle('snap-next-btn--up', isLast);
+    navBtn.setAttribute('aria-label', isLast ? 'Back to top' : 'Next section');
+  }
+
+  updateInitialButtonState();
 
   // ── ② 右下TOPボタン（常時表示）──────────────────────────
   var topBtn = document.createElement('button');
