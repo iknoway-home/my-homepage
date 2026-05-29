@@ -1,8 +1,7 @@
 /**
  * shared/snap.js
- * ① スクロール停止後、セクション境界から vh×0.5 以内なら自動スナップ
- * ② 画面下中央: 次/前セクション or Back-to-top ナビボタン
- * ③ 画面右下: 常時表示のTOPボタン
+ * ① 画面下中央: 次/前セクション or Back-to-top ナビボタン
+ * ② 画面右下: 常時表示のTOPボタン
  */
 (function () {
   'use strict';
@@ -10,40 +9,7 @@
   var sections = Array.from(document.querySelectorAll('section[id]'));
   if (sections.length < 2) return;
 
-  // ── ① スクロール50%閾値スナップ ─────────────────────────
-  var snapTimer = null;
-  var isSnapping = false;
-  var DEBOUNCE = 120;
-
-  function getNearestSection() {
-    var scrollY = window.scrollY;
-    var best = sections[0];
-    var bestDist = Math.abs(sections[0].offsetTop - scrollY);
-    sections.forEach(function (s) {
-      var d = Math.abs(s.offsetTop - scrollY);
-      if (d < bestDist) { bestDist = d; best = s; }
-    });
-    return { section: best, dist: bestDist };
-  }
-
-  function maybeSnap() {
-    if (isSnapping) return;
-    var vh = window.innerHeight;
-    var result = getNearestSection();
-    if (result.dist < vh * 0.5 && result.dist > 5) {
-      isSnapping = true;
-      window.scrollTo({ top: result.section.offsetTop, behavior: 'smooth' });
-      setTimeout(function () { isSnapping = false; }, 700);
-    }
-  }
-
-  window.addEventListener('scroll', function () {
-    if (isSnapping) return;
-    clearTimeout(snapTimer);
-    snapTimer = setTimeout(maybeSnap, DEBOUNCE);
-  }, { passive: true });
-
-  // ── ② 中央ナビボタン（次/前 or Back-to-top）────────────
+  // ── ① 中央ナビボタン（次/前 or Back-to-top）────────────
   var currentIndex = 0;
   var navBtn = document.createElement('button');
   navBtn.className = 'snap-next-btn';
@@ -87,7 +53,7 @@
     target.scrollIntoView({ behavior: 'smooth' });
   });
 
-  // ── ③ 右下TOPボタン（常時表示）──────────────────────────
+  // ── ② 右下TOPボタン（常時表示）──────────────────────────
   var topBtn = document.createElement('button');
   topBtn.className = 'top-btn';
   topBtn.type = 'button';
