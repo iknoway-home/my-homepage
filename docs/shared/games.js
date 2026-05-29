@@ -32,7 +32,7 @@
   function copy() {
     var mode = themeMode();
     if (mode === 'terminal') {
-      return { nav: './games', kicker: '// ── currently_playing ──', title: '$ ps aux | grep games' };
+      return { nav: './games', kicker: '// ── currently_playing ──', title: '$ ls ~/games' };
     }
     if (mode === 'jp') {
       return { nav: 'ゲーム', kicker: '今やってるゲーム', title: 'Games' };

@@ -32,7 +32,7 @@
   function titleForTheme() {
     var firstNav = document.querySelector('.nav-links a');
     var text = firstNav ? firstNav.textContent.trim() : '';
-    if (text.indexOf('./') === 0) return '$ ls -lh ./projects/';
+    if (text.indexOf('./') === 0) return '$ ls ~/projects';
     if (/連絡|作品|映画/.test(document.body.textContent)) return '制作物';
     if (text === text.toUpperCase() && /[A-Z]/.test(text)) return 'PROJECTS';
     return 'Projects';
