@@ -293,6 +293,14 @@ button {
     inset 0 0 30px rgba(90, 45, 18, 0.16);
 }
 
+.spread.is-active .page {
+  cursor: pointer;
+}
+
+.spread.is-active .page :is(a, button) {
+  cursor: pointer;
+}
+
 .page::before {
   content: "";
   position: absolute;
