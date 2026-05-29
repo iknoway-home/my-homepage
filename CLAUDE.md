@@ -35,7 +35,9 @@ iKnoWay の個人サイト。アニメと映画を愛するオタクのプロフ
 │       └─ script.js
 │
 └─ shared/
-    ├─ data.js           全テーマ共通コンテンツデータ（プロフィール・アニメ・映画・連絡先）
+    ├─ data.js           全テーマ共通コンテンツデータ（プロフィール・ゲーム・アニメ・映画・成果物・連絡先）
+    ├─ games.js          通常テーマ向けゲームセクション描画
+    ├─ projects.js       通常テーマ向け成果物セクション描画
     └─ utils.js          全テーマ共通ユーティリティ
 ```
 
@@ -43,7 +45,7 @@ iKnoWay の個人サイト。アニメと映画を愛するオタクのプロフ
 
 ## コンテンツデータの仕組み
 
-すべてのコンテンツ（プロフィール、お気に入りアニメ、お気に入り映画、連絡先）は
+すべてのコンテンツ（プロフィール、ゲーム、お気に入りアニメ、お気に入り映画、成果物、連絡先）は
 `shared/data.js` に `window.__data` として一元管理されている。
 
 各テーマの `script.js` がページ読み込み時に `window.__data` からデータを読み取り、
@@ -54,8 +56,10 @@ iKnoWay の個人サイト。アニメと映画を愛するオタクのプロフ
 window.__data = {
   profile: { name, role, tagline, about, facts, traits },
   heroStats: [ { count, unit, label } ],
+  games: [ { title, status, comment, tags } ],
   anime: [ { title, comment, tags } ],
   movies: [ { title, comment, tags } ],
+  projects: [ { name, url, description, tags } ],
   contact: { message, email },
   social: [ { name, url } ]
 };
@@ -118,6 +122,18 @@ const { $, $$, debounce, throttle, lerp, clamp, copyToClipboard } = window.__uti
 新規テーマでは、通常ナビゲーションに `site-header` / `nav-inner` / `nav-logo` / `nav-links` / `nav-switch` を使うこと。
 特殊ナビゲーションの場合は `book-header` / `chapter-nav` / `theme-switch` を使うと共通寸法が適用されます。
 寸法を変える必要がある場合は、テーマごとに上書きせず `docs/shared/human-polish.css` の `--chrome-*` 変数を更新してください。
+
+### shared/games.js
+
+通常テーマでは `shared/data.js` の後、`shared/projects.js` の前に読み込むこと。
+`window.__data.games` からAnimeの直前にゲームセクションを自動挿入します。
+`fantasy-book` のような特殊構造テーマでは、テーマ固有の `script.js` で `data.games` を独立ページとして描画してください。
+
+### shared/projects.js
+
+通常テーマでは `shared/data.js` の後、`shared/snap.js` の前に読み込むこと。
+`window.__data.projects` からContactとは別の成果物セクションを自動挿入します。
+`fantasy-book` のような特殊構造テーマでは、テーマ固有の `script.js` で `data.projects` を独立ページとして描画してください。
 
 ---
 

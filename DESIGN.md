@@ -164,12 +164,26 @@
 window.__data = {
   profile: { name, role, roleJp, tagline, about, facts, traits },
   heroStats: [{ count, unit, label }],
+  games: [{ title, status, comment, tags }],
   anime:  [{ title, comment, tags }],   // 9件
   movies: [{ title, comment, tags }],   // 6件
+  projects: [{ name, url, description, tags }],
   contact: { message, email },
   social: [{ name, url, icon }]         // SVGインラインアイコン
 };
 ```
+
+### ゲームセクション — `shared/games.js`
+
+通常テーマでは `shared/games.js` が `window.__data.games` を読み取り、Animeの直前に `#games` セクションを挿入する。
+新規テーマでは `data.js` の後、`projects.js` の前に `games.js` を読み込むこと。
+`fantasy-book` のような特殊ページ構造では、テーマ固有の `script.js` 内で `data.games` を使って独立ページとして描画する。
+
+### 成果物セクション — `shared/projects.js`
+
+通常テーマでは `shared/projects.js` が `window.__data.projects` を読み取り、Contactとは別の `#projects` セクションをContact直前に挿入する。
+新規テーマでは `data.js` の後、`snap.js` の前に `projects.js` を読み込むこと。
+`fantasy-book` のような特殊ページ構造では、テーマ固有の `script.js` 内で `data.projects` を使って独立ページとして描画する。
 
 ### ユーティリティ — `shared/utils.js`
 

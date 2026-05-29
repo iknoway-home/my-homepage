@@ -27,6 +27,8 @@
 │
 └─ shared/
     ├─ data.js           全テーマ共通コンテンツデータ
+    ├─ games.js          ゲームセクションの共通描画
+    ├─ projects.js       成果物セクションの共通描画
     └─ utils.js          全テーマ共通ユーティリティ関数
 ```
 
@@ -34,7 +36,7 @@
 
 ## コンテンツの仕組み
 
-プロフィール・お気に入りアニメ・お気に入り映画・連絡先などのコンテンツは
+プロフィール・ゲーム・お気に入りアニメ・お気に入り映画・成果物・連絡先などのコンテンツは
 `shared/data.js` に一元管理されています。各テーマは同じデータを読み取り、
 テーマ固有のデザインで描画します。
 
@@ -104,6 +106,7 @@ npx serve docs
 
 新規テーマのヘッダーは `site-header` / `nav-inner` / `nav-logo` / `nav-links` / `nav-switch` を使い、`style.css` の後に `../../shared/human-polish.css` を読み込んでください。
 ヘッダーと共通ボタンの位置・サイズは `human-polish.css` の `--chrome-*` で全テーマ共通管理します。
+通常テーマでは `../../shared/data.js` の後に `../../shared/games.js` と `../../shared/projects.js` も読み込んでください。ゲーム一覧はAnime直前、成果物一覧はContactとは別セクションとして自動挿入されます。
 
 ```js
 const THEMES = [

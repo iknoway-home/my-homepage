@@ -42,6 +42,25 @@
     '</article>';
   }
 
+  function gameEntry(item, index) {
+    return '<article class="entry">' +
+      '<p class="entry-index">' + escapeHtml(item.status || 'Playing') + ' ' + String(index + 1).padStart(2, '0') + '</p>' +
+      '<h3>' + escapeHtml(item.title) + '</h3>' +
+      '<p>' + escapeHtml(item.comment) + '</p>' +
+      tagList(item.tags || []) +
+    '</article>';
+  }
+
+  function projectEntry(item, index) {
+    return '<article class="entry">' +
+      '<p class="entry-index">Artifact ' + String(index + 1).padStart(2, '0') + '</p>' +
+      '<h3><a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener">' +
+      escapeHtml(item.name) + '</a></h3>' +
+      '<p>' + escapeHtml(item.description || item.url) + '</p>' +
+      tagList(item.tags || []) +
+    '</article>';
+  }
+
   function statEntry(item) {
     return '<div><strong>' + escapeHtml(item.count) + escapeHtml(item.unit) + '</strong><span>' +
       escapeHtml(item.label) + '</span></div>';
@@ -100,9 +119,17 @@
           '<div class="facts-grid">' + profileFacts() + '</div>' + traitRunes()
       ),
       spread(
+        'games',
+        'Games',
+        '<p class="chapter-kicker">Chapter II</p><h2>Current Quests</h2>' +
+          (data.games || []).slice(0, 1).map(gameEntry).join(''),
+        '<p class="chapter-kicker">Party Log</p><h2>Rift Notes</h2>' +
+          (data.games || []).slice(1).map(function (item, index) { return gameEntry(item, index + 1); }).join('')
+      ),
+      spread(
         'anime-a',
         'Anime I',
-        '<p class="chapter-kicker">Chapter II</p><h2>Anime Codex</h2>' +
+        '<p class="chapter-kicker">Chapter III</p><h2>Anime Codex</h2>' +
           animeOne.slice(0, 2).map(workEntry).join(''),
         '<p class="chapter-kicker">Continued</p><h2>Favorite Tomes</h2>' +
           animeOne.slice(2).map(function (item, index) { return workEntry(item, index + 2); }).join('')
@@ -110,7 +137,7 @@
       spread(
         'anime-b',
         'Anime II',
-        '<p class="chapter-kicker">Chapter III</p><h2>Further Entries</h2>' +
+        '<p class="chapter-kicker">Chapter IV</p><h2>Further Entries</h2>' +
           animeTwo.slice(0, 2).map(function (item, index) { return workEntry(item, index + 4); }).join(''),
         '<p class="chapter-kicker">Appendix</p><h2>Battle Notes</h2>' +
           animeTwo.slice(2, 3).map(function (item, index) { return workEntry(item, index + 6); }).join('') +
@@ -119,7 +146,7 @@
       spread(
         'anime-c',
         'Anime III',
-        '<p class="chapter-kicker">Chapter IV</p><h2>Late Entries</h2>' +
+        '<p class="chapter-kicker">Chapter V</p><h2>Late Entries</h2>' +
           animeTwo.slice(3, 4).map(function (item, index) { return workEntry(item, index + 7); }).join('') +
           '<div class="page-ornament page-ornament-small" aria-hidden="true"></div>',
         '<p class="chapter-kicker">Codex Close</p><h2>Dark Fantasy</h2>' +
@@ -129,7 +156,7 @@
       spread(
         'movies-a',
         'Movies I',
-        '<p class="chapter-kicker">Chapter V</p><h2>Moving Pictures</h2>' +
+        '<p class="chapter-kicker">Chapter VI</p><h2>Moving Pictures</h2>' +
           moviesOne.slice(0, 2).map(workEntry).join(''),
         '<p class="chapter-kicker">Silver Screen</p><h2>Relics</h2>' +
           moviesOne.slice(2).map(function (item, index) { return workEntry(item, index + 2); }).join('')
@@ -137,15 +164,24 @@
       spread(
         'movies-b',
         'Movies II',
-        '<p class="chapter-kicker">Chapter VI</p><h2>Other Visions</h2>' +
+        '<p class="chapter-kicker">Chapter VII</p><h2>Other Visions</h2>' +
           moviesTwo.slice(0, 2).map(function (item, index) { return workEntry(item, index + 3); }).join(''),
         '<p class="chapter-kicker">Final Reel</p><h2>Last Leaves</h2>' +
           moviesTwo.slice(2).map(function (item, index) { return workEntry(item, index + 5); }).join('')
       ),
       spread(
+        'projects',
+        'Projects',
+        '<p class="chapter-kicker">Chapter VIII</p><h2>Made Artifacts</h2>' +
+          (data.projects || []).map(projectEntry).join(''),
+        '<p class="chapter-kicker">Portal Notes</p><h2>Open the Gate</h2>' +
+          '<p class="body-copy body-copy-large">これまで作ったサイトを、連絡先とは別の章にまとめています。</p>' +
+          '<div class="page-ornament" aria-hidden="true"></div>'
+      ),
+      spread(
         'contact',
         'Contact',
-        '<p class="chapter-kicker">Chapter VII</p><h2>Send a Raven</h2>' +
+        '<p class="chapter-kicker">Chapter IX</p><h2>Send a Raven</h2>' +
           '<p class="body-copy body-copy-large">' + escapeHtml(data.contact.message) + '</p>' +
           '<a class="email-link" href="mailto:' + escapeHtml(data.contact.email) + '">' +
           escapeHtml(data.contact.email) + '</a>',

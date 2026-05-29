@@ -132,18 +132,39 @@ window.__data = {
     },
   ],
 
+  games: [
+    {
+      title: "Final Fantasy XIV",
+      status: "Playing Now",
+      comment:
+        "スクウェア・エニックスのオンラインRPG。光の戦士として広大な世界を冒険し、メインストーリー、ダンジョン、討滅戦、クラフト、ハウジングなどを自分のペースで楽しめるMMORPG。",
+      tags: ["MMORPG", "RPG", "Online"],
+    },
+    {
+      title: "League of Legends",
+      status: "Playing Now",
+      comment:
+        "Riot Gamesの5対5チーム対戦型MOBA。個性の違うチャンピオンを選び、レーン戦、集団戦、オブジェクト管理を通じて相手のネクサス破壊を目指す競技性の高いゲーム。",
+      tags: ["MOBA", "PvP", "Strategy"],
+    },
+  ],
+
   contact: {
     message:
       "アニメや映画の話、推しの布教、なんでもお気軽にどうぞ。語り合いましょう。",
     email: "hello@example.com",
   },
 
-  social: [
+  projects: [
     {
       name: "Wishlist Web",
       url: "https://wishlist-web.pages.dev",
-      icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.77-3.4 6.86-8.55 11.54L12 21.35z"/></svg>',
+      description: "欲しいものを整理して共有できる小さなWebアプリ。",
+      tags: ["Web App", "Wishlist", "Cloudflare Pages"],
     },
+  ],
+
+  social: [
     {
       name: "GitHub",
       url: "https://github.com/iknoway-home",
