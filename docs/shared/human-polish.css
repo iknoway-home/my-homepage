@@ -182,6 +182,10 @@ button {
   transform: none;
 }
 
+.snap-prev-btn {
+  left: calc(var(--chrome-float-right) + var(--chrome-float-size) + 10px);
+}
+
 .top-btn {
   right: var(--chrome-float-right);
   bottom: var(--chrome-float-bottom);
@@ -189,6 +193,15 @@ button {
 
 .snap-next-btn:hover {
   transform: translateY(-3px);
+}
+
+.snap-next-btn:disabled {
+  cursor: default;
+  opacity: 0.38;
+}
+
+.snap-next-btn:disabled:hover {
+  transform: none;
 }
 
 .snap-next-btn--up svg,
