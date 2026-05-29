@@ -69,6 +69,155 @@ button {
   background: var(--human-selection-bg, #f5d76e);
 }
 
+/* Shared chrome contract:
+   Theme CSS owns colors, borders, radius, shadows, and motion.
+   This layer owns header/control geometry so every theme keeps the
+   same navigation position and hit areas, including future themes. */
+:root {
+  --chrome-header-height: 56px;
+  --chrome-header-inline: clamp(16px, 4vw, 40px);
+  --chrome-nav-max-width: 1180px;
+  --chrome-nav-gap: 24px;
+  --chrome-logo-width: clamp(112px, 18vw, 188px);
+  --chrome-nav-link-gap: 20px;
+  --chrome-nav-link-height: 32px;
+  --chrome-switch-width: 144px;
+  --chrome-switch-height: 34px;
+  --chrome-float-size: 48px;
+  --chrome-float-right: 24px;
+  --chrome-float-bottom: 24px;
+  --chrome-top-bottom: 84px;
+}
+
+:is(.site-header, .site-header.scrolled, .site-nav) {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  height: var(--chrome-header-height);
+  min-height: var(--chrome-header-height);
+  padding: 0 var(--chrome-header-inline);
+}
+
+:is(.site-header, .site-header.scrolled, .site-nav, .nav-inner, .nav-switch, .theme-switch, .book-header, .sigil, .chapter-nav, .chapter-nav button, .snap-next-btn, .top-btn) {
+  box-sizing: border-box;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: var(--chrome-nav-max-width);
+  height: 100%;
+  min-height: var(--chrome-header-height);
+  margin: 0 auto;
+  padding: 0;
+  gap: var(--chrome-nav-gap);
+}
+
+.nav-logo {
+  flex: 0 0 var(--chrome-logo-width);
+  min-width: 0;
+  margin-right: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  margin-left: 0;
+  gap: var(--chrome-nav-link-gap);
+}
+
+.nav-links li {
+  flex: 0 0 auto;
+}
+
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--chrome-nav-link-height);
+  padding-top: 0;
+  padding-bottom: 0;
+  white-space: nowrap;
+}
+
+.nav-switch,
+.theme-switch {
+  display: inline-flex;
+  flex: 0 0 var(--chrome-switch-width);
+  align-items: center;
+  justify-content: center;
+  width: var(--chrome-switch-width);
+  min-width: 0;
+  height: var(--chrome-switch-height);
+  margin-left: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.snap-next-btn,
+.top-btn {
+  width: var(--chrome-float-size);
+  height: var(--chrome-float-size);
+  padding: 0;
+}
+
+.snap-next-btn {
+  right: var(--chrome-float-right);
+  bottom: var(--chrome-float-bottom);
+}
+
+.top-btn {
+  right: var(--chrome-float-right);
+  bottom: var(--chrome-top-bottom);
+}
+
+.book-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  height: var(--chrome-header-height);
+  padding: 0 var(--chrome-header-inline);
+  align-items: center;
+  gap: var(--chrome-nav-gap);
+}
+
+.sigil {
+  width: var(--chrome-switch-height);
+  height: var(--chrome-switch-height);
+}
+
+.chapter-nav {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.chapter-nav button {
+  width: 72px;
+  min-width: 72px;
+  height: var(--chrome-switch-height);
+  padding: 0;
+}
+
 :is(.work-card, .anime-card, .work-item, .work-article, .entry, .fact-tile, .fact-cell, .trait-chip, .rune-tags span) {
   backface-visibility: hidden;
 }
@@ -117,6 +266,35 @@ button {
   .works-grid,
   .card-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --chrome-header-height: 52px;
+    --chrome-header-inline: 14px;
+    --chrome-nav-gap: 14px;
+    --chrome-logo-width: 104px;
+    --chrome-switch-width: 132px;
+    --chrome-switch-height: 36px;
+    --chrome-float-size: 42px;
+    --chrome-float-right: 16px;
+    --chrome-float-bottom: 20px;
+    --chrome-top-bottom: 76px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .chapter-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .chapter-nav::-webkit-scrollbar {
+    display: none;
   }
 }
 

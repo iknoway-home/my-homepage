@@ -190,6 +190,26 @@ window.__data = {
 | `copyToClipboard(text)` | クリップボードコピー → `Promise<boolean>` |
 | `prefersReducedMotion()` | ユーザーのモーション設定を取得 |
 
+### 共通クローム固定ルール — `shared/human-polish.css`
+
+全テーマのヘッダーと共通操作ボタンは、見た目ではなく **位置・サイズ・ヒットエリアだけ** を `shared/human-polish.css` で固定する。
+各テーマの `style.css` は色、角丸、影、ボーダー、ホバー演出などの世界観を担当し、ヘッダー/ボタンの寸法は共通レイヤーに任せる。
+
+新規テーマを追加するときは、通常テーマでは以下のクラス名を使い、必ず `style.css` の後に `../../shared/human-polish.css` を読み込む。
+
+```html
+<header class="site-header" id="site-header">
+  <nav class="nav-inner">
+    <span class="nav-logo">iKnoWay</span>
+    <ul class="nav-links">...</ul>
+    <a class="nav-switch" href="../../index.html?switch=1">Switch Theme</a>
+  </nav>
+</header>
+```
+
+特殊なナビゲーションテーマでは `book-header` / `chapter-nav` / `theme-switch` を使うと、同じ共通寸法が適用される。
+共通値を変える場合は、各テーマへ個別に寸法を書き足さず、`human-polish.css` の `--chrome-*` カスタムプロパティを更新する。
+
 ### スクロールアニメーション共通パターン
 
 ```js

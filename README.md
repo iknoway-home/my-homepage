@@ -102,6 +102,9 @@ npx serve docs
 2. `script.js` 内で `window.__data` を読み取ってコンテンツを描画する
 3. `docs/theme-router.js` の `THEMES` 配列にエントリを追加
 
+新規テーマのヘッダーは `site-header` / `nav-inner` / `nav-logo` / `nav-links` / `nav-switch` を使い、`style.css` の後に `../../shared/human-polish.css` を読み込んでください。
+ヘッダーと共通ボタンの位置・サイズは `human-polish.css` の `--chrome-*` で全テーマ共通管理します。
+
 ```js
 const THEMES = [
   { id: 'classy',       path: 'themes/classy/index.html',       weight: 1 },

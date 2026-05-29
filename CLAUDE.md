@@ -110,6 +110,15 @@ const THEMES = [
 const { $, $$, debounce, throttle, lerp, clamp, copyToClipboard } = window.__utils;
 ```
 
+### shared/human-polish.css
+
+全テーマで `style.css` の後に読み込む共通仕上げレイヤーです。
+ヘッダーと共通操作ボタンの **位置・サイズ・ヒットエリア** はここで固定し、各テーマの `style.css` では色、角丸、影、ボーダー、ホバー演出だけを調整します。
+
+新規テーマでは、通常ナビゲーションに `site-header` / `nav-inner` / `nav-logo` / `nav-links` / `nav-switch` を使うこと。
+特殊ナビゲーションの場合は `book-header` / `chapter-nav` / `theme-switch` を使うと共通寸法が適用されます。
+寸法を変える必要がある場合は、テーマごとに上書きせず `docs/shared/human-polish.css` の `--chrome-*` 変数を更新してください。
+
 ---
 
 ## 各テーマの実装メモ
