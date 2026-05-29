@@ -61,62 +61,6 @@
     '</article>';
   }
 
-  function randomItem(items) {
-    return items[Math.floor(Math.random() * items.length)];
-  }
-
-  function pickFortuneAnime(character) {
-    var anime = Array.isArray(data.anime) ? data.anime : [];
-    if (!anime.length) return null;
-
-    var matched = anime.filter(function (item) {
-      return Array.isArray(item.tags) && item.tags.indexOf(character.luckyTag) >= 0;
-    });
-
-    return randomItem(matched.length ? matched : anime);
-  }
-
-  function drawFortune() {
-    var types = data.fortune && Array.isArray(data.fortune.characterTypes)
-      ? data.fortune.characterTypes
-      : [];
-    if (!types.length) return null;
-
-    var character = randomItem(types);
-    return {
-      character: character,
-      anime: pickFortuneAnime(character),
-      power: 72 + Math.floor(Math.random() * 28),
-    };
-  }
-
-  function fortuneResult(result) {
-    if (!result) return '<p class="body-copy">The oracle is quiet today.</p>';
-
-    var character = result.character;
-    var anime = result.anime;
-    return '<div class="fortune-result" data-fortune-result>' +
-      '<div class="fortune-character">' +
-        '<p class="fortune-label">Character Type</p>' +
-        '<h3>' + escapeHtml(character.name) + '</h3>' +
-        '<p class="fortune-mood">' + escapeHtml(character.mood) + '</p>' +
-        '<p class="fortune-advice">' + escapeHtml(character.advice) + '</p>' +
-        tagList(character.tags || []) +
-      '</div>' +
-      '<div class="fortune-pick">' +
-        '<p class="fortune-label">Recommended Anime</p>' +
-        '<h3>' + escapeHtml(anime ? anime.title : 'Free Pick') + '</h3>' +
-        '<p>' + escapeHtml(anime ? anime.comment : 'Choose by instinct.') + '</p>' +
-        tagList(anime && anime.tags ? anime.tags : []) +
-      '</div>' +
-      '<div class="fortune-meter">' +
-        '<span>Affinity</span>' +
-        '<strong>' + result.power + '%</strong>' +
-        '<i style="--fortune-power:' + result.power + '%"></i>' +
-      '</div>' +
-    '</div>';
-  }
-
   function statEntry(item) {
     return '<div><strong>' + escapeHtml(item.count) + escapeHtml(item.unit) + '</strong><span>' +
       escapeHtml(item.label) + '</span></div>';
@@ -230,15 +174,6 @@
         ''
       ),
       spread(
-        'fortune',
-        'Fortune',
-        '<p class="chapter-kicker">Bonus Chapter</p>' +
-          '<h2>Anime Fortune</h2>' +
-          '<p class="body-copy">Draw a character type and a matching anime from the grimoire.</p>' +
-          '<button class="turn-cta fortune-draw" type="button" data-fortune-draw>Draw Again</button>',
-        fortuneResult(drawFortune())
-      ),
-      spread(
         'contact',
         'Contact',
         '<p class="chapter-kicker">Chapter IX</p>' +
@@ -334,14 +269,6 @@
 
   function bind() {
     document.addEventListener('click', function (event) {
-      var fortuneButton = event.target.closest('[data-fortune-draw]');
-      if (fortuneButton) {
-        event.preventDefault();
-        var target = document.querySelector('#fortune [data-fortune-result]');
-        if (target) target.outerHTML = fortuneResult(drawFortune());
-        return;
-      }
-
       var actionTarget = event.target.closest('[data-action]');
       if (actionTarget && !actionTarget.disabled) {
         event.preventDefault();
