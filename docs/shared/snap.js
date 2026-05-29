@@ -1,7 +1,7 @@
 /**
  * shared/snap.js
- * ① 画面下中央: 次/前セクション or Back-to-top ナビボタン
- * ② 画面右下: 常時表示のTOPボタン
+ * ① 画面左下: 次/前セクション ナビボタン
+ * ② 画面右下: 上端では最下部へ、それ以外では最上部へ移動するボタン
  */
 (function () {
   'use strict';
@@ -9,7 +9,7 @@
   var sections = Array.from(document.querySelectorAll('section[id]'));
   if (sections.length < 2) return;
 
-  // ── ① 中央ナビボタン（次/前 or Back-to-top）────────────
+  // ── ① 左下ナビボタン（次/前セクション）───────────────
   var currentIndex = 0;
   var navBtn = document.createElement('button');
   navBtn.className = 'snap-next-btn';
@@ -21,12 +21,23 @@
     '<polyline points="6 9 12 15 18 9"/></svg>';
   document.body.appendChild(navBtn);
 
+  function setIcon(button, direction) {
+    if (button.dataset.direction === direction) return;
+    var points = direction === 'up' ? '18 15 12 9 6 15' : '6 9 12 15 18 9';
+    button.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+      'stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
+      '<polyline points="' + points + '"/></svg>';
+    button.dataset.direction = direction;
+  }
+
   function setCurrentIndex(index) {
-    if (index === currentIndex) return;
     currentIndex = index;
     var isLast = currentIndex >= sections.length - 1;
     navBtn.classList.toggle('snap-next-btn--up', isLast);
-    navBtn.setAttribute('aria-label', isLast ? 'Back to top' : 'Next section');
+    navBtn.setAttribute('aria-label', isLast ? 'Previous section' : 'Next section');
+    setIcon(navBtn, isLast ? 'up' : 'down');
+    updateTopButtonState();
   }
 
   function getNearestSectionIndex() {
@@ -68,38 +79,42 @@
   navBtn.addEventListener('click', function () {
     currentIndex = getNearestSectionIndex();
     var target = currentIndex >= sections.length - 1
-      ? sections[0]
+      ? sections[currentIndex - 1]
       : sections[currentIndex + 1];
     target.scrollIntoView({ behavior: 'smooth' });
   });
 
-  // Fallback for older browsers without IntersectionObserver.
-  if (!('IntersectionObserver' in window)) {
-    window.addEventListener('scroll', function () {
-      setCurrentIndex(getNearestSectionIndex());
-    }, { passive: true });
-  }
-
-  function updateInitialButtonState() {
-    var isLast = currentIndex >= sections.length - 1;
-    navBtn.classList.toggle('snap-next-btn--up', isLast);
-    navBtn.setAttribute('aria-label', isLast ? 'Back to top' : 'Next section');
-  }
-
-  updateInitialButtonState();
-
-  // ── ② 右下TOPボタン（常時表示）──────────────────────────
+  // ── ② 右下TOP/BOTTOMボタン（常時表示）────────────────
   var topBtn = document.createElement('button');
   topBtn.className = 'top-btn';
   topBtn.type = 'button';
   topBtn.setAttribute('aria-label', 'Back to top');
-  topBtn.innerHTML =
-    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
-    'stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">' +
-    '<polyline points="18 15 12 9 6 15"/></svg>';
+  setIcon(topBtn, 'up');
   document.body.appendChild(topBtn);
 
+  function isAtTop() {
+    return window.scrollY <= 8;
+  }
+
+  function updateTopButtonState() {
+    if (!topBtn) return;
+    var atTop = isAtTop();
+    topBtn.classList.toggle('top-btn--down', atTop);
+    topBtn.setAttribute('aria-label', atTop ? 'Go to bottom' : 'Back to top');
+    setIcon(topBtn, atTop ? 'down' : 'up');
+  }
+
+  window.addEventListener('scroll', function () {
+    setCurrentIndex(getNearestSectionIndex());
+  }, { passive: true });
+
   topBtn.addEventListener('click', function () {
+    if (isAtTop()) {
+      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+      return;
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  setCurrentIndex(getNearestSectionIndex());
 })();

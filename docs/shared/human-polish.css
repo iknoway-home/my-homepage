@@ -176,13 +176,24 @@ button {
 }
 
 .snap-next-btn {
-  right: var(--chrome-float-right);
+  left: var(--chrome-float-right);
+  right: auto;
   bottom: var(--chrome-float-bottom);
+  transform: none;
 }
 
 .top-btn {
   right: var(--chrome-float-right);
-  bottom: var(--chrome-top-bottom);
+  bottom: var(--chrome-float-bottom);
+}
+
+.snap-next-btn:hover {
+  transform: translateY(-3px);
+}
+
+.snap-next-btn--up svg,
+.top-btn--down svg {
+  transform: none;
 }
 
 .book-header {
