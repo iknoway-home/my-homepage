@@ -158,6 +158,9 @@ ul { list-style: none; }
 
 .hero-ascii {
   color: var(--green-dim);
+  font-family: Consolas, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Fira Code', monospace;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
   font-size: clamp(0.45rem, 1.2vw, 0.75rem);
   line-height: 1.2;
   margin-bottom: 24px;
