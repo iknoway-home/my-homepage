@@ -3,7 +3,35 @@
  * All personal content data shared across themes.
  * Themes read from window.__data to render their UI.
  */
+const birthMonthBase = {
+  year: 1996,
+  month: 3,
+};
+
+const dateBases = {
+  birthMonth: birthMonthBase,
+  otakuHistoryStart: new Date(2008, 3, 1),
+};
+
+function yearsSince(date, now = new Date()) {
+  const years = now.getFullYear() - date.getFullYear();
+  const hasHadAnniversary =
+    now.getMonth() > date.getMonth() ||
+    (now.getMonth() === date.getMonth() && now.getDate() >= date.getDate());
+
+  return hasHadAnniversary ? years : years - 1;
+}
+
+function ageFromBirthMonth(now = new Date()) {
+  const years = now.getFullYear() - birthMonthBase.year;
+  return now.getMonth() + 1 >= birthMonthBase.month ? years : years - 1;
+}
+
+const otakuYears = yearsSince(dateBases.otakuHistoryStart);
+
 window.__data = {
+  dateBases,
+
   profile: {
     name: "iKnoWay",
     role: "Anime Enthusiast & Culture Explorer",
@@ -16,7 +44,7 @@ window.__data = {
     ],
     facts: [
       { label: "Location", value: "Aichi, Japan" },
-      { label: "オタ歴", value: "20+ Years" },
+      { label: "オタ歴", value: otakuYears + " Years" },
       { label: "得意ジャンル", value: "SF / ファンタジー / バトル物" },
       { label: "Fuel", value: "紅茶 & ポップコーン(キャラメル)" },
     ],
@@ -32,7 +60,7 @@ window.__data = {
 
   heroStats: [
     { count: 100, unit: "+", label: "WATCHED" },
-    { count: 20, unit: "+", label: "YEARS" },
+    { count: otakuYears, unit: "", label: "YEARS" },
     { count: 100, unit: "%", label: "PASSION" },
   ],
 
