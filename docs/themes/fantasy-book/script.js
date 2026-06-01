@@ -44,7 +44,7 @@
 
   function gameEntry(item, index) {
     return '<article class="entry">' +
-      '<p class="entry-index">' + escapeHtml(item.status || 'Playing') + ' ' + String(index + 1).padStart(2, '0') + '</p>' +
+      '<p class="entry-index">' + escapeHtml(item.status || 'Now Playing') + ' ' + String(index + 1).padStart(2, '0') + '</p>' +
       '<h3>' + escapeHtml(item.title) + '</h3>' +
       '<p>' + escapeHtml(item.comment) + '</p>' +
       tagList(item.tags || []) +

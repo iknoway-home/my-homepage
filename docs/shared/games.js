@@ -32,21 +32,21 @@
   function copy() {
     var mode = themeMode();
     if (mode === 'terminal') {
-      return { nav: './games', kicker: '// ── currently_playing ──', title: '$ ls ~/games' };
+      return { nav: './games', kicker: 'Now Playing', title: '$ ls ~/games' };
     }
     if (mode === 'jp') {
-      return { nav: 'ゲーム', kicker: '今やってるゲーム', title: 'Games' };
+      return { nav: 'ゲーム', kicker: 'Now Playing', title: 'Games' };
     }
     if (mode === 'caps') {
-      return { nav: 'GAMES', kicker: 'PLAYING NOW', title: 'GAMES' };
+      return { nav: 'GAMES', kicker: 'Now Playing', title: 'GAMES' };
     }
-    return { nav: 'Games', kicker: 'Playing now', title: 'Games' };
+    return { nav: 'Games', kicker: 'Now Playing', title: 'Games' };
   }
 
   function gameCard(game, index) {
     var tags = Array.isArray(game.tags) ? game.tags : [];
     return '<article class="game-card reveal">' +
-      '<p class="game-index">' + String(index + 1).padStart(2, '0') + ' / ' + escapeHtml(game.status || 'Playing') + '</p>' +
+      '<p class="game-index">' + String(index + 1).padStart(2, '0') + ' / ' + escapeHtml(game.status || 'Now Playing') + '</p>' +
       '<h3>' + escapeHtml(game.title) + '</h3>' +
       '<p>' + escapeHtml(game.comment) + '</p>' +
       '<div class="game-tags">' + tags.map(function (tag) {
