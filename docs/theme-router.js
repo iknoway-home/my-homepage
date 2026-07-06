@@ -23,6 +23,7 @@ const THEMES = [
   { id: 'newspaper',  path: 'themes/newspaper/index.html',  weight: 1 },
   { id: 'apple',      path: 'themes/apple/index.html',      weight: 1 },
   { id: 'fantasy-book', path: 'themes/fantasy-book/index.html', weight: 1 },
+  { id: 'winxp',      path: 'themes/winxp/index.html',      weight: 1 },
   { id: 'data-js',    path: 'themes/data-js/index.html',    weight: 1 },
 ];
 

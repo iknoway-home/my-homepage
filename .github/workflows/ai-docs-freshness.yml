@@ -1,0 +1,47 @@
+name: ai-docs-freshness
+
+# AI 用ドキュメントの鮮度を週 1 でチェックし、
+# 棚卸しが必要ならリマインダーイシューを作成する。
+on:
+  schedule:
+    - cron: "0 0 * * 1" # 毎週月曜 09:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run freshness check
+        id: freshness
+        run: |
+          set +e
+          out="$(bash scripts/ai-docs-status.sh --check)"
+          code=$?
+          {
+            echo "report<<EOF"
+            echo "$out"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+          echo "stale=$([ $code -ne 0 ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
+      - name: Create reminder issue
+        if: steps.freshness.outputs.stale == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT: ${{ steps.freshness.outputs.report }}
+        run: |
+          title="AI docs 棚卸しリマインダー"
+          existing="$(gh issue list --state open --search "$title in:title" --json number --jq 'length')"
+          if [ "$existing" -gt 0 ]; then
+            echo "既存のリマインダーイシューが開いているためスキップ"
+            exit 0
+          fi
+          gh issue create --title "$title" --body "$(printf '%s\n\n`sops/update-ai-docs.sop.md` に従って棚卸しを実行してください（Claude Code では /update-ai-docs）。' "$REPORT")"

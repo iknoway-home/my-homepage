@@ -10,7 +10,20 @@
 | テーマ | コンセプト | 主な技術的特徴 |
 |---|---|---|
 | **classy** | スターバックス風 — ダークグリーンの壁・木目・黒板・暖かい光 | CSS グラデーションライト演出 / 木目テクスチャ / Caveat フォント黒板 |
-| **anime** | サイバーパンク・アニメ風 — 漆黒 × ネオン × グリッチ | Canvas パーティクル / グリッチ CSS アニメ / CRT スキャンライン |
+| **cyber** | サイバーパンク — 漆黒 × ネオン × グリッチ | Canvas パーティクル / グリッチ CSS アニメ / CRT スキャンライン |
+| **anime** | 明るいマンガ・アニメ風 — 桜ピンク × 空色 × きらきら | きらきら演出 / アニメ調カード / 日本語向け丸ゴシック |
+| **y2k** | 2000年代個人サイト風 — GeoCities / Y2K | タイル背景 / レトロ装飾 / 派手な色 |
+| **terminal** | ターミナル / CLI 風 | 等幅フォント / コマンド表示 / 端末UI |
+| **magazine** | 雑誌・エディトリアル風 | 大きな文字組み / 紙面風レイアウト |
+| **kawaii** | かわいいポップUI | パステル / 丸み / 軽い装飾 |
+| **brutalist** | ブルータリズムWeb風 | 強い罫線 / ラフな構成 / 高コントラスト |
+| **vaporwave** | Vaporwave / レトロフューチャー | ネオン / グリッド / 80s風カラー |
+| **zen** | 静かな和・ミニマル | 余白 / 落ち着いた配色 / 控えめな動き |
+| **space** | 宇宙・SF風 | 星・奥行き / ダーク背景 |
+| **newspaper** | 新聞・活字風 | 紙面レイアウト / セリフ体 / 罫線 |
+| **apple** | Apple風プロダクトページ | 余白 / 大きなタイポグラフィ / 滑らかなセクション |
+| **fantasy-book** | ファンタジー本・章立てUI | 本のページ構造 / 章ナビゲーション |
+| **winxp** | Windows XP / Luna 風 | XP風タスクバー / ウィンドウクローム / デスクトップアイコン |
 | **data-js** | `shared/data.js` をそのまま見せるソース表示テーマ | Fetch API / 行番号付きコードビュー |
 
 ---
@@ -23,14 +36,21 @@
 ├─ theme-router.js       テーマ選択ロジック
 │
 ├─ themes/
-│   ├─ classy/           おしゃれ系テーマ（index.html / style.css / script.js）
-│   └─ anime/            サイバーパンクアニメ系テーマ（index.html / style.css / script.js）
+│   └─ <theme>/          各テーマ（index.html / style.css / script.js）
 │
 └─ shared/
     ├─ data.js           全テーマ共通コンテンツデータ
     ├─ games.js          ゲームセクションの共通描画
     ├─ projects.js       成果物セクションの共通描画
+    ├─ snap.js           スクロール補助
+    ├─ human-polish.css  ヘッダー・共通ボタン寸法の共通レイヤー
     └─ utils.js          全テーマ共通ユーティリティ関数
+
+/ai-docs                 AI / 開発者向けの設計・運用ドキュメント
+/sops                    再利用する作業手順
+/scripts                 補助スクリプト
+/.claude                 Claude Code 用設定・コマンド
+/.github                 GitHub Actions
 ```
 
 ---
@@ -56,6 +76,7 @@
 | `docs/index.html?switch=1` | 現在と**異なる**テーマに強制切替 |
 | `docs/index.html?theme=classy` | `classy` テーマを固定表示（開発用） |
 | `docs/index.html?theme=anime` | `anime` テーマを固定表示（開発用） |
+| `docs/index.html?theme=winxp` | `winxp` テーマを固定表示（開発用） |
 | `docs/index.html?theme=data-js` | `data-js` テーマを固定表示（開発用） |
 
 各ページ内の「Switch Theme / GACHA」ボタンは `?switch=1` を使っています。
@@ -68,6 +89,8 @@
 - Google Fonts — Playfair Display / Lato / Caveat / Bebas Neue / Rajdhani / Noto Sans JP
 - Canvas API（anime テーマのパーティクル）
 - IntersectionObserver API（スクロールアニメーション）
+- GitHub Pages（`main` ブランチの `/docs` を公開）
+- AI docs 鮮度チェック（`scripts/ai-docs-status.sh` / GitHub Actions / Claude Code SessionStart）
 
 外部ライブラリへの依存は **ゼロ** です。
 
@@ -100,11 +123,28 @@ npx serve docs
 
 ---
 
+## AI / 開発者向けドキュメント
+
+このリポジトリでは、AI エージェントや開発者が迷わず作業できるように、内部向けドキュメントをサイト本体とは分けて管理します。
+
+| パス | 役割 |
+|---|---|
+| `AGENTS.md` | AI / 開発者向けの共通作業ルール |
+| `CLAUDE.md` / `GEMINI.md` / `QWEN.md` | 各AIツール用入口（`AGENTS.md` へのシンボリックリンク） |
+| `DESIGN.md` | UI / UX / テーマ実装方針 |
+| `ai-docs/` | プロジェクト概要、機能マップ、設計、運用、テスト、セキュリティ |
+| `sops/` | 再利用する作業手順 |
+| `.claude/commands/update-ai-docs.md` | Claude Code の `/update-ai-docs` 用コマンド |
+| `scripts/ai-docs-status.sh` | AI docs の鮮度チェック |
+
+---
+
 ## テーマを追加したい場合
 
 1. `docs/themes/` に新ディレクトリを作成し `index.html` / `style.css` / `script.js` を実装
 2. `script.js` 内で `window.__data` を読み取ってコンテンツを描画する
 3. `docs/theme-router.js` の `THEMES` 配列にエントリを追加
+4. `README.md` と `ai-docs/CODEMAP.md` を更新
 
 新規テーマのヘッダーは `site-header` / `nav-inner` / `nav-logo` / `nav-links` / `nav-switch` を使い、`style.css` の後に `../../shared/human-polish.css` を読み込んでください。
 ヘッダーと共通ボタンの位置・サイズは `human-polish.css` の `--chrome-*` で全テーマ共通管理します。
@@ -113,7 +153,6 @@ npx serve docs
 ```js
 const THEMES = [
   { id: 'classy',       path: 'themes/classy/index.html',       weight: 1 },
-  { id: 'anime',        path: 'themes/anime/index.html',        weight: 1 },
   { id: 'future-theme', path: 'themes/future-theme/index.html', weight: 1 }, // <- 追加
 ];
 ```

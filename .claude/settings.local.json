@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(mv site:*)",
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "Bash(rtk ls *)"
     ]
   }
 }

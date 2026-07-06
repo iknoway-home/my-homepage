@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iKnoWay — My Computer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../../shared/human-polish.css" />
+</head>
+<body>
+
+  <!-- Desktop icons -->
+  <ul class="desktop-icons" aria-hidden="true">
+    <li class="desktop-icon icon-computer"><span class="di-img"></span><span class="di-label">My Computer</span></li>
+    <li class="desktop-icon icon-folder"><span class="di-img"></span><span class="di-label">My Documents</span></li>
+    <li class="desktop-icon icon-internet"><span class="di-img"></span><span class="di-label">Internet</span></li>
+    <li class="desktop-icon icon-recycle"><span class="di-img"></span><span class="di-label">Recycle Bin</span></li>
+  </ul>
+
+  <!-- Taskbar (nav) -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-inner">
+      <span class="nav-logo xp-start">start</span>
+      <ul class="nav-links">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#anime">Anime</a></li>
+        <li><a href="#movies">Movies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="../../index.html?switch=1" class="nav-switch">🔄 Theme</a>
+    </nav>
+  </header>
+
+  <!-- ── Hero window ── -->
+  <section class="xp-window" id="top">
+    <div class="xp-titlebar">
+      <span class="xp-tb-icon icon-computer" aria-hidden="true"></span>
+      <span class="xp-tb-title">iKnoWay — Profile</span>
+      <div class="xp-tb-controls">
+        <button class="xp-ctrl xp-min" tabindex="-1" aria-hidden="true">−</button>
+        <button class="xp-ctrl xp-max" tabindex="-1" aria-hidden="true">□</button>
+        <button class="xp-ctrl xp-close" tabindex="-1" aria-hidden="true">✕</button>
+      </div>
+    </div>
+    <div class="xp-menubar" aria-hidden="true">
+      <span>File</span><span>Edit</span><span>View</span><span>Favorites</span><span>Help</span>
+    </div>
+    <div class="xp-client xp-hero-client">
+      <div class="hero-content reveal">
+        <div class="xp-hero-avatar" aria-hidden="true"></div>
+        <h1 class="xp-hero-name" id="hero-name"></h1>
+        <p class="xp-hero-role" id="hero-role"></p>
+        <div class="xp-progress-bar" aria-hidden="true">
+          <div class="xp-progress-fill"></div>
+        </div>
+        <p class="xp-hero-tagline" id="hero-tagline"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About window ── -->
+  <section class="xp-window" id="about">
+    <div class="xp-titlebar">
+      <span class="xp-tb-icon icon-folder" aria-hidden="true"></span>
+      <span class="xp-tb-title">About Me — Windows Explorer</span>
+      <div class="xp-tb-controls">
+        <button class="xp-ctrl xp-min" tabindex="-1" aria-hidden="true">−</button>
+        <button class="xp-ctrl xp-max" tabindex="-1" aria-hidden="true">□</button>
+        <button class="xp-ctrl xp-close" tabindex="-1" aria-hidden="true">✕</button>
+      </div>
+    </div>
+    <div class="xp-client">
+      <div class="xp-explorer-sidebar" aria-hidden="true">
+        <div class="xp-sidebar-section">
+          <div class="xp-sidebar-title">File and Folder Tasks</div>
+          <ul>
+            <li class="side-doc">View profile</li>
+            <li class="side-search">Search</li>
+            <li class="side-copy">Copy</li>
+          </ul>
+        </div>
+        <div class="xp-sidebar-section">
+          <div class="xp-sidebar-title">Other Places</div>
+          <ul>
+            <li class="side-computer">My Computer</li>
+            <li class="side-internet">Internet</li>
+          </ul>
+        </div>
+      </div>
+      <div class="xp-explorer-main">
+        <div class="section-label reveal">01 / About</div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <h2>About Me</h2>
+            <div id="about-paragraphs"></div>
+            <table class="xp-facts-table" id="about-facts"></table>
+            <div class="xp-traits" id="about-traits"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Anime window ── -->
+  <section class="xp-window" id="anime">
+    <div class="xp-titlebar">
+      <span class="xp-tb-icon icon-media" aria-hidden="true"></span>
+      <span class="xp-tb-title">Anime List — Windows Media Player</span>
+      <div class="xp-tb-controls">
+        <button class="xp-ctrl xp-min" tabindex="-1" aria-hidden="true">−</button>
+        <button class="xp-ctrl xp-max" tabindex="-1" aria-hidden="true">□</button>
+        <button class="xp-ctrl xp-close" tabindex="-1" aria-hidden="true">✕</button>
+      </div>
+    </div>
+    <div class="xp-client">
+      <div class="section-label reveal">02 / Anime</div>
+      <h2 class="section-title reveal">Favorite Anime</h2>
+      <div class="xp-grid" id="anime-grid"></div>
+    </div>
+  </section>
+
+  <!-- ── Movies window ── -->
+  <section class="xp-window" id="movies">
+    <div class="xp-titlebar">
+      <span class="xp-tb-icon icon-media" aria-hidden="true"></span>
+      <span class="xp-tb-title">Movies — Windows Media Player</span>
+      <div class="xp-tb-controls">
+        <button class="xp-ctrl xp-min" tabindex="-1" aria-hidden="true">−</button>
+        <button class="xp-ctrl xp-max" tabindex="-1" aria-hidden="true">□</button>
+        <button class="xp-ctrl xp-close" tabindex="-1" aria-hidden="true">✕</button>
+      </div>
+    </div>
+    <div class="xp-client">
+      <div class="section-label reveal">03 / Movies</div>
+      <h2 class="section-title reveal">Favorite Movies</h2>
+      <div class="xp-grid" id="movies-grid"></div>
+    </div>
+  </section>
+
+  <!-- ── Contact window ── -->
+  <section class="xp-window" id="contact">
+    <div class="xp-titlebar">
+      <span class="xp-tb-icon icon-mail" aria-hidden="true"></span>
+      <span class="xp-tb-title">Contact — Outlook Express</span>
+      <div class="xp-tb-controls">
+        <button class="xp-ctrl xp-min" tabindex="-1" aria-hidden="true">−</button>
+        <button class="xp-ctrl xp-max" tabindex="-1" aria-hidden="true">□</button>
+        <button class="xp-ctrl xp-close" tabindex="-1" aria-hidden="true">✕</button>
+      </div>
+    </div>
+    <div class="xp-client xp-contact-client">
+      <div class="section-label reveal">04 / Contact</div>
+      <h2 class="section-title reveal">Get in Touch</h2>
+      <p class="contact-msg reveal" id="contact-message"></p>
+      <div class="xp-social reveal" id="contact-social"></div>
+
+      <!-- XP-style dialog box Easter egg -->
+      <div class="xp-dialog reveal" role="dialog" aria-label="System Message">
+        <div class="xp-titlebar">
+          <span class="xp-tb-icon icon-warning" aria-hidden="true"></span>
+          <span class="xp-tb-title">System Message</span>
+          <div class="xp-tb-controls">
+            <button class="xp-ctrl xp-close" tabindex="-1" aria-hidden="true">✕</button>
+          </div>
+        </div>
+        <div class="xp-dialog-body">
+          <span class="xp-dialog-icon icon-warning" aria-hidden="true"></span>
+          <p>This website has performed an illegal operation and will be shut down.</p>
+          <p class="xp-dialog-sub">Error: Too much awesome detected.</p>
+          <div class="xp-dialog-btns">
+            <button class="xp-push-btn" id="dialog-ok">OK</button>
+            <button class="xp-push-btn" id="dialog-cancel">Cancel</button>
+            <button class="xp-push-btn" id="dialog-details">Details &gt;&gt;</button>
+          </div>
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        <p>&copy; 2026 iKnoWay. All rights reserved.</p>
+        <span class="footer-note">Best viewed in Internet Explorer 6.0</span>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Error popup (shown on click) -->
+  <div class="xp-error-popup" id="error-popup" aria-hidden="true" role="alertdialog">
+    <div class="xp-titlebar">
+      <span class="xp-tb-icon icon-error" aria-hidden="true"></span>
+      <span class="xp-tb-title">Error</span>
+      <div class="xp-tb-controls">
+        <button class="xp-ctrl xp-close" id="error-close" aria-label="Close">✕</button>
+      </div>
+    </div>
+    <div class="xp-dialog-body">
+      <span class="xp-dialog-icon icon-error" aria-hidden="true"></span>
+      <p id="error-msg">An unexpected error has occurred.</p>
+      <div class="xp-dialog-btns">
+        <button class="xp-push-btn" id="error-ok">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../shared/utils.js"></script>
+  <script src="../../shared/data.js"></script>
+  <script src="../../shared/games.js"></script>
+  <script src="../../shared/projects.js"></script>
+  <script src="../../shared/snap.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
